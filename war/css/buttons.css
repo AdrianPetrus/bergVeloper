@@ -1,0 +1,168 @@
+.buttons {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	overflow-y: auto;
+	overflow-x: auto;
+}
+button {
+	border: 1px solid #cfd5d9;
+	font-weight: normal;
+	color: #555555;
+	-moz-border-radius: 4px 4px 4px 4px;
+	border-radius: 4px 4px 4px 4px;
+	background-color: #FFFFFF;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.button-group-left button, .bc-button-left  {
+	float: left;
+}
+.button-group-right, .bc-button-right {
+	float: right;
+}
+button:hover,
+button:focus,
+button:active,
+button.active {
+	border-color: #008da5;
+}
+
+button:hover .bc-icon-over,
+button:focus .bc-icon-over,
+button:active .bc-icon-over,
+button.active .bc-icon-over{
+	visibility: visible;
+}
+
+.bc-button-highlight {
+	border: 1px solid #005C7E;
+	color: #ffffff;
+	background-color: #005C7E;
+}
+.bc-small-icon {
+	width: 16px;
+	height: 16px;
+	background-image: url(icons/ui-icons_888888_256x240.png);
+	display: block;
+	text-indent: -99999px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+}
+.bc-button {
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	margin: 1px;
+	padding: 0px;
+	height: 29px;
+	position: relative;
+	cursor: pointer;
+	zoom: 1;
+	overflow: visible;
+	text-decoration: none;	
+}
+.bc-button-text {
+	padding-top: 3px;
+	padding-bottom: 0px;
+	display: inline;
+}
+.bc-icon {
+	position: absolute;
+	top: 50%;
+	margin-top: -10px;
+	right: 5px;
+}
+.bc-button-text-only .bc-button-text {
+	margin-right: 10px;
+	margin-left: 10px;
+	padding-right: 0px;
+	padding-left: 0px;
+	white-space: nowrap;
+}
+.bc-button-text-icon .bc-button-text {
+	padding-right: 0px;
+	padding-left: 0px;
+	margin-left: 33px;
+	margin-right: 10px;
+}
+.bc-button-text-icon .bc-button-icon, .bc-button-text-icons .bc-button-icon {
+	display: block;
+	height: 21px;
+	width: 21px;
+	position: absolute;
+	left: 6px;
+	top: 50%;
+	margin-top: -11px;
+	padding-left: 0px;
+	padding-top: 0px;
+}
+.bc-button-text-icons .bc-button-text {
+	padding-right: 0px;
+	padding-left: 0px;
+	margin-left: 33px;
+	margin-right: 22px;
+}
+.bc-button-icon-large {
+	width: 31px;
+	height: 31px;
+	border-width: 0px;
+	border-style: none;
+}
+.bc-button-icon-small {
+	width: 21px;
+	height: 21px;
+	border-width: 0px;
+	border-style: none;
+}
+.bc-button-icon-large .bc-button-icon {
+	height: 31px;
+	width: 31px;
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.bc-button-icon-small .bc-button-icon {
+	height: 21px;
+	width: 21px;
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.bc-button-icon-large .bc-icon-over {
+	display: block;
+	width: 31px;
+	height: 31px;
+	-moz-border-radius: 15px 15px 15px 15px;
+	border-radius: 15px 15px 15px 15px;
+	border: 2px solid #FFFFFF;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	opacity: 0.5;
+	visibility: hidden;
+}
+.bc-button-icon-small .bc-icon-over {
+	display: block;
+	width: 21px;
+	height: 21px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+	border: 2px solid #FFFFFF;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	opacity: 0.6;
+	visibility: hidden;
+}
+.bt-top {
+	display: none;
+	width: 21px;
+	height: 21px;
+	background-image: url(icons/bt-top.png);
+	background-repeat: no-repeat;
+}

@@ -1,0 +1,216 @@
+.tbl-data {
+	border-bottom: 0px solid #ddd;
+
+}
+.tbl-data table, table.ng-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.tbl-data table tbody tr, table.ng-table tbody tr {
+	cursor: pointer;
+}
+.tbl-data table tr th, table.ng-table tr th {
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #DDD;
+	font-style: italic;
+	font-weight: normal;
+	color: #098E21;
+	font-size: 11px;
+	line-height: 13px;
+	text-align: left;
+	vertical-align: top;
+	padding-top: 1px;
+	padding-right: 4px;
+	padding-bottom: 1px;
+	padding-left: 4px;
+}
+.tbl-data table tr td, table.ng-table tr td {
+	padding-top: 2px;
+	padding-right: 4px;
+	padding-bottom: 2px;
+	padding-left: 4px;
+	border-bottom: 1px solid #eeeeee;
+	vertical-align: top;
+}
+.tbl-data table tr.selected td, table.ng-table tr.selected td {
+	background-color: #EEE;
+	background-color: rgba(141, 192, 219, 0.25);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+}
+.tbl-data table tr.selected td.last, table.ng-table tr.selected td.last {
+	background-image: url(../images/arow-right.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	padding: 0px;
+	width: 16px;
+}
+.tbl-data table tr.edit-mode, table.ng-table tr.edit-mode {
+	background-color: #E3E3E3;
+}
+.tbl-data table tr.edit-mode td, table.ng-table tr.edit-mode td {
+	padding: 15px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #CCC;
+	border-left-color: #CCC;
+}
+.tbl-data table tr.edit-mode .position-form, table.ng-table tr.edit-mode .position-form {
+	padding: 0px;
+}
+.tbl-data table tr.confirmed td, table.ng-table tr.confirmed td {
+	background-color: #CFC;
+}
+.tbl-data table tr.confirmed td.last, table.ng-table tr.confirmed td.last {
+	background-image: url(../images/icon-confirmation.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 16px;
+	padding: 0px;
+}
+.tbl-data table tr td.center, .tbl-data table tr th.center, table.ng-table tr td.center, table.ng-table tr th.center{
+	text-align: center;
+}
+.tbl-data table tr td.nowrap, .tbl-data table tr th.nowrap, table.ng-table tr td.nowrap, table.ng-table tr th.nowrap {
+	white-space: nowrap;
+}
+.tbl-data table tr td.red, table.ng-table tr td.red {
+	color: #FF0004;
+}
+
+table.ng-table tbody td:first-child {
+  /*border-right: 1px solid #ccc;*/
+  background-color: #E3E3E3;
+}
+
+table.ng-table tbody td:not(:first-child) {
+  /*border-left: 1px solid blue;*/
+}
+
+table.ng-table tbody td:not(:last-child) {
+  /*border-right: 1px solid blue;*/
+}
+
+.over   {
+	background-color: #e5eff5;
+}
+.pagination {
+	position: relative;
+	padding-left: 50%;
+	height: 20px;
+	padding-top: 5px;
+}
+
+.pagination-inside {
+	position: absolute;
+	left: 50%;
+}
+
+.pagination ul {
+	display: block;
+	position: relative;
+	left: -50%;
+	list-style-image: none;
+	list-style-type: none;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+.pagination ul li {
+	display: inline;
+}
+.pagination ul li a {
+	display: block;
+	float: left;
+	padding-top: 2px;
+	padding-right: 1px;
+	padding-bottom: 2px;
+	padding-left: 1px;
+	text-align: center;
+	width: 16px;
+	border: 1px solid #DCDCDC;
+	margin-left: 2px;
+	margin-right: 2px;
+	font-size: 11px;
+	line-height: 12px;
+}
+.pagination ul li a:hover {
+	border-color: #069;
+}
+.pagination ul li.previous a, .pagination ul li.next a  {
+	border-color: #FFFFFF;
+}
+.pagination ul li.selected a {
+	background-color: #069;
+	color: #FFFFFF;
+}
+
+.ng-table-pager {
+	overflow: auto;	
+}
+.ng-table-counts {
+	float: right;
+}
+.ng-table-counts .btn {
+	font-size: 11px;
+	line-height: 12px;
+	margin: 0px;
+	padding: 0px;
+}
+ul.pagination {
+	position: relative;
+	padding-left: 0px;
+	height: 19px;
+	display: block;
+	position: relative;
+	list-style-image: none;
+	list-style-type: none;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding-top: 1px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	float: left;
+}
+ul.pagination li {
+	display: inline;
+}
+ul.pagination li a {
+	display: block;
+	float: left;
+	padding-top: 2px;
+	padding-right: 1px;
+	padding-bottom: 2px;
+	padding-left: 1px;
+	text-align: center;
+	width: 16px;
+	border: 1px solid #AAAAAA;
+	margin-left: 2px;
+	margin-right: 2px;
+	font-size: 11px;
+	line-height: 12px;
+}
+ul.pagination li a:hover {
+	border-color: #069;
+}
+ul.pagination li.disabled a {
+	border: 1px solid #DCDCDC;
+}
+
+ul.pagination li.previous a, ul.pagination li.next a  {
+	border-color: #FFFFFF;
+}
+ul.pagination li.selected a {
+	background-color: #069;
+	color: #FFFFFF;
+}

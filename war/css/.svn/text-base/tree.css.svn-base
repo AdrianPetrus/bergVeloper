@@ -1,0 +1,94 @@
+.menu-tree {
+	overflow-x: auto;
+	overflow-y: auto;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	border-top: 3px solid #dddddd;
+}
+.tree {
+	padding-top: 4px;
+}
+.menu-tree ul li {
+	position: relative;
+}
+.menu-tree ul li a {
+	display: block;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	color: #000000;
+	text-decoration: none;
+	height: 16px;
+}
+.menu-tree ul li a:hover {
+	background-repeat: no-repeat;
+	text-decoration: underline;
+}
+
+.menu-tree ul li a.node-open {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-image: url(../images/expand.png);
+	width: 19px;
+	height: 16px;
+}
+.menu-tree ul li a.node-close {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-image: url(../images/collapse.png);
+	width: 19px;
+	height: 16px;
+}
+.menu-tree ul li a.check {
+	position: absolute;
+	top: 0px;
+	left: 20px;
+	background-image: url(../images/unchecked.png);
+	width: 19px;
+	height: 16px;
+	background-repeat: no-repeat;
+	display: none;
+}
+.menu-tree ul.tree, .menu-tree ul.tree ul {
+	list-style-type: none;
+	background: url(../images/I.png) repeat-y;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+}
+.menu-tree ul.tree ul {
+	margin-left: 0px;
+}
+.menu-tree ul.tree li {
+	margin: 0;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-left: 20px;
+	padding-bottom: 0px;
+	background: url(../images/T.png) no-repeat;
+	color: #369;
+}
+.menu-tree ul.tree li.first  {
+	margin: 0;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-left: 20px;
+	padding-bottom: 0px;
+	background-repeat: no-repeat;
+	color: #369;
+	background-image: url(../images/L2.png);
+}
+
+.menu-tree ul.tree li.last {
+	background: #fff url(../images/L.png) no-repeat;
+}
+.menu-tree ul.tree li.root {
+	background: #fff url(../original/css/none) no-repeat;
+	padding-left: 0px;	
+}

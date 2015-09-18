@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder' xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+	<g:HTMLPanel>
+		<h2>Overview</h2>
+		<div class="link-set">
+			<ul class="link-group">
+				<li>
+					<g:Anchor ui:field="Overview_1" href="javascript:;">Calendar</g:Anchor>
+				</li>
+			</ul>
+		</div>
+
+		<h2>Employees</h2>
+		<div class="link-set">
+			<ul class="link-group">
+				<li id="Employees_1_1">
+					<g:Anchor ui:field="Employees_1" href="javascript:;">Employees</g:Anchor>
+				</li>
+				<li>
+					<g:Anchor ui:field="Configuration_Certifications" href="javascript:;">Certifications</g:Anchor>
+				</li>
+				<li>
+					<g:Anchor ui:field="Configuration_Trainings" href="javascript:;">Trainings</g:Anchor>
+				</li>
+				<li>
+					<g:Anchor ui:field="Configuration_Evaluations" href="javascript:;">Evaluations</g:Anchor>
+				</li>
+				<li>
+					<g:Anchor ui:field="Configuration_Departments" href="javascript:;">Departments</g:Anchor>
+				</li>
+				<li>
+					<g:Anchor ui:field="Configuration_Benefits" href="javascript:;">Benefits</g:Anchor>
+				</li>
+				<li>
+					<g:Anchor ui:field="Employees_Positions" href="javascript:;">Positions</g:Anchor>
+				</li>
+			</ul>
+		</div>
+
+
+		<h2>Candidates</h2>
+		<div class="link-set">
+			<ul class="link-group">
+				<li>
+					<g:Anchor ui:field="Candidates_1" href="javascript:;">Candidates</g:Anchor>
+				</li>
+				<li>
+					<g:Anchor ui:field="Candidates_hr_activities" href="javascript:;">Activities</g:Anchor>
+				</li>
+				<li>
+					<g:Anchor ui:field="Candidates_hr_activities_statuses" href="javascript:;">Activities statuses</g:Anchor>
+				</li>
+				<li>
+					<g:Anchor ui:field="Candidates_requests_statuses" href="javascript:;">Application statuses</g:Anchor>
+				</li>
+			</ul>
+		</div>
+
+
+		<h2>Projects</h2>
+		<div class="link-set">
+			<ul class="link-group">
+				<li>
+					<g:Anchor ui:field="Projects_1" href="javascript:;">Projects</g:Anchor>
+				</li>
+			</ul>
+		</div>
+
+
+		<h2>Requests</h2>
+		<div class="link-set">
+			<ul class="link-group">
+				<li>
+					<g:Anchor ui:field="Requests_1" href="javascript:;">Requests</g:Anchor>
+				</li>
+				<li>
+					<g:Anchor ui:field="Requests_Statuses" href="javascript:;">Requests Statuses</g:Anchor>
+				</li>
+				<li>
+					<g:Anchor ui:field="Announces_1" href="javascript:;">Announces</g:Anchor>
+				</li>
+				<li>
+					<g:Anchor ui:field="Requests_Azure" href="javascript:;">Import from azure</g:Anchor>
+				</li>
+			</ul>
+		</div>
+
+
+		<h2>Reports</h2>
+		<div class="link-set">
+			<ul class="link-group">
+				<li id='Report_Candidates'>
+					<g:Anchor ui:field="Report_Candidates" href="javascript:;">Candidates</g:Anchor>
+				</li>
+				<li>
+					<g:Anchor ui:field="Report_Requests1" href="javascript:;">Requests</g:Anchor>
+				</li>
+				<li>
+					<g:Anchor ui:field="Report_Activity1" href="javascript:;">Activities</g:Anchor>
+				</li>
+				<li id='Report_Applications_1'>
+					<g:Anchor ui:field="Report_Applications" href="javascript:;">Applications</g:Anchor>
+				</li>
+				<li id='Report_Skills'>
+					<g:Anchor ui:field="Report_Skills" href="javascript:;">Skills</g:Anchor>
+				</li>
+				<li id='Report_Candidates_Process'>
+					<g:Anchor ui:field="Report_Candidates_Process" href="javascript:;">Process of candidates</g:Anchor>
+				</li>
+				<li id='Report_IS_Ccost'>
+					<g:Anchor ui:field="Report_IS_Ccost" href="javascript:;">Hours/cost center</g:Anchor>
+				</li>
+			</ul>
+		</div>
+
+
+		<h2>Configurations</h2>
+		<div class="link-set">
+			<ul class="link-group">
+				<li>
+					<g:Anchor ui:field="Configuration_Users" href="javascript:;">Users</g:Anchor>
+				</li>
+				<li>
+					<g:Anchor ui:field="Configuration_Skills" href="javascript:;">Skills</g:Anchor>
+				</li>
+				<li>
+					<g:Anchor ui:field="Configuration_Skills_Categories" href="javascript:;">Skills Categories</g:Anchor>
+				</li>
+				<li>
+					<g:Anchor ui:field="Configuration_Companies" href="javascript:;">Companies</g:Anchor>
+				</li>
+				<li>
+					<g:Anchor ui:field="Configuration_Countries" href="javascript:;">Countries</g:Anchor>
+				</li>
+				<li>
+					<g:Anchor ui:field="Configuration_Counties" href="javascript:;">Counties</g:Anchor>
+				</li>
+				<li>
+					<g:Anchor ui:field="Configuration_Cities" href="javascript:;">Cities</g:Anchor>
+				</li>
+				<li>
+					<g:Anchor ui:field="Configuration_CV_Source" href="javascript:;">CV Sources</g:Anchor>
+				</li>
+			</ul>
+		</div>
+
+		<h2>IO</h2>
+		<div class="link-set">
+			<ul class="link-group">
+				<li>
+					<g:Anchor ui:field="IO_Products" href="javascript:;">Products</g:Anchor>
+				</li>
+			</ul>
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder>
