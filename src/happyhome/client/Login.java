@@ -18,6 +18,7 @@ import com.google.gwt.event.dom.client.KeyUpHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Cookies;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Button;
@@ -37,14 +38,18 @@ public class Login extends VForm {
 	private final DBServiceAsync dbService = GWT.create(DBService.class);
 
 	// Label lblAlias;
-	@UiField(provided = true) TextBox textAlias;
+	@UiField(provided = true)
+	TextBox textAlias;
 
 	// Label lblPassword;
-	@UiField(provided = true) PasswordTextBox textPassword;
+	@UiField(provided = true)
+	PasswordTextBox textPassword;
 
-	@UiField(provided = true) Button loginButton;
+	@UiField(provided = true)
+	Button loginButton;
 
-	@UiField(provided = true) HTML errorLabel;
+	@UiField(provided = true)
+	HTML errorLabel;
 
 	// constructor
 	public Login() {
@@ -149,7 +154,9 @@ public class Login extends VForm {
 		else
 			textPassword.setText(strPassword);
 
-		dbService.DoLogin(strAlias, strPassword, "PASSWORD", new AsyncCallback<DBRecord>() {
+		Window.alert(strAlias + strPassword);
+
+		dbService.DoLogin("users", "USERNAME", strAlias, "PASSWORD", strPassword, new AsyncCallback<DBRecord>() {
 			public void onSuccess(DBRecord result) {
 				// setez pe TheApp
 				try {
@@ -169,7 +176,8 @@ public class Login extends VForm {
 						TheApp.loginInfo.sqlIDFirma = result.getString("DBConnection.sqlIDFirma");
 
 						// set the username
-						String strUser = "User:" + TheApp.loginInfo.User.get("LAST_NAME") + " " + TheApp.loginInfo.User.get("FIRST_NAME") + " / logout";
+						String strUser = "User:" + TheApp.loginInfo.User.get("LAST_NAME") + " " + TheApp.loginInfo.User.get("FIRST_NAME")
+								+ " / logout";
 
 						/* logout */
 						// create logout part
@@ -194,7 +202,8 @@ public class Login extends VForm {
 						// save values
 						Date now = new Date();
 						long nowLong = now.getTime();
-						nowLong = nowLong + (1000 * 60 * 60 * 24 * 7);// seven days
+						nowLong = nowLong + (1000 * 60 * 60 * 24 * 7);// seven
+																		// days
 						now.setTime(nowLong);
 						// DebugUtils.D("set ...");
 						Cookies.setCookie("bc_hr.Login", textAlias.getText(), now);
@@ -255,12 +264,10 @@ public class Login extends VForm {
 						// }
 						// }
 
-
 					}
 				} catch (Exception e) {
 					System.out.println(e.toString());
 				}
-
 			}
 
 			public void onFailure(Throwable caught) {

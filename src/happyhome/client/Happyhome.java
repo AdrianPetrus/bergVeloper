@@ -4,6 +4,7 @@ import gwtSql.client.DBService;
 import gwtSql.client.DBServiceAsync;
 import gwtSql.client.controls.AlertWidget;
 import gwtSql.client.forms.VForm;
+import gwtSql.shared.DBRecord;
 import happyhome.shared.TheApp;
 
 import com.google.gwt.core.client.EntryPoint;
@@ -26,21 +27,21 @@ public class Happyhome implements EntryPoint {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void onModuleLoad() {
 
-		// test call happyHome service
-		hh.test("test", new AsyncCallback() {
-
-			@Override
-			public void onFailure(Throwable caught) {
-				Window.alert(caught.getMessage());
-
-			}
-
-			@Override
-			public void onSuccess(Object result) {
-				Window.alert(result.toString());
-
-			}
-		});
+		// // test call happyHome service
+		// hh.test("test", new AsyncCallback() {
+		//
+		// @Override
+		// public void onFailure(Throwable caught) {
+		// Window.alert(caught.getMessage());
+		//
+		// }
+		//
+		// @Override
+		// public void onSuccess(Object result) {
+		// Window.alert(result.toString());
+		//
+		// }
+		// });
 
 		String strIniFileName;
 		strIniFileName = GWT.getHostPageBaseURL();
@@ -78,6 +79,21 @@ public class Happyhome implements EntryPoint {
 
 		// hide menu
 		hidemenu();
+
+		dbService.GetDBRecord("users", "username", "adip", new AsyncCallback<DBRecord>() {
+
+			@Override
+			public void onFailure(Throwable caught) {
+				// TODO Auto-generated method stub
+				Window.alert(caught.getMessage());
+			}
+
+			@Override
+			public void onSuccess(DBRecord result) {
+				// TODO Auto-generated method stub
+				Window.alert(result.toString());
+			}
+		});
 
 		TheApp.login();
 
