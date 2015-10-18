@@ -1,63 +1,34 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:c="urn:import:com.google.gwt.user.cellview.client">
 
-	<g:HTMLPanel>
-		<div class="row">
-			<div class="col-sm-4"></div>
-			<div class="col-sm-4">
-				<div class="page-section box">
-					<div class="page-section-inner">
-						<div class="page-section-header">
-							<div class="page-section-title">
-								<h2>login</h2>
-							</div>
+	<g:HTMLPanel>		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4">
+					<div class="login-panel panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Please Sign In</h3>
 						</div>
-						<div class="block">
-							<div class="block-body">
-								<g:HTML ui:field='errorLabel'>
-								</g:HTML>
-								<div class="tbl-form">
-									<table border="0" cellpadding="0" cellspacing="0" width="100%">
-										<thead>
-										</thead>
-										<tbody>
-											<tr>
-												<td>
-													<label class="control-label" for="alias">Utilizator</label>
-												</td>
-												<td>
-													<g:TextBox ui:field='textAlias' styleName="form-control"></g:TextBox>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<label class="control-label" for="parola">Parola</label>
-												</td>
-												<td>
-													<g:TextBox ui:field='textPassword' styleName="form-control"></g:TextBox>
-												</td>
-											</tr>
-											<tr>
-												<td></td>
-												<td>
-													<g:Button ui:field='loginButton' styleName="bc-button bc-button-text-icon">
-														<span class="bc-button-icon">
-															<img src="css/icons/bt-save-small-circle.png" />
-														</span>
-														<span class="bc-button-text">Login</span>
-													</g:Button>
-
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
+						<div class="panel-body">
+							<g:HTML ui:field='errorLabel'>
+							</g:HTML>
+							<form role="form">
+								<fieldset>
+									<div class="form-group">
+									<g:TextBox ui:field='textAlias' styleName="form-control"></g:TextBox>										
+									</div>
+									<div class="form-group">
+										<g:TextBox ui:field='textPassword' styleName="form-control"></g:TextBox>
+									</div>									
+									<!-- Change this to a button or input when using this as a form -->
+									<g:Button ui:field='loginButton' styleName="btn btn-lg btn-success btn-block">
+									</g:Button>									
+								</fieldset>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-4"></div>
 		</div>
 	</g:HTMLPanel>
 </ui:UiBinder>

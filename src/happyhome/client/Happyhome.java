@@ -27,29 +27,9 @@ public class Happyhome implements EntryPoint {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void onModuleLoad() {
 
-		// // test call happyHome service
-		// hh.test("test", new AsyncCallback() {
-		//
-		// @Override
-		// public void onFailure(Throwable caught) {
-		// Window.alert(caught.getMessage());
-		//
-		// }
-		//
-		// @Override
-		// public void onSuccess(Object result) {
-		// Window.alert(result.toString());
-		//
-		// }
-		// });
-
 		String strIniFileName;
 		strIniFileName = GWT.getHostPageBaseURL();
-		// System.out.println(strIniFileName);
-		// System.out.println(GWT.getModuleBaseURL());
-		// getHostPageBaseURL return something like
-		// http://server:port/application_Name/
-		// and I need only application name
+
 		int endIndex = strIniFileName.lastIndexOf("/");
 		strIniFileName = strIniFileName.substring(0, endIndex);
 		int beginIndex = strIniFileName.lastIndexOf("/");
@@ -69,44 +49,7 @@ public class Happyhome implements EntryPoint {
 			}
 		});
 
-		// menu
-		VForm M = new MainMenu();
-		RootPanel.get("nav").add(M);
-		TheApp._FORMS.put("MainMenu", M);
-
-		// we initialize native JS. We call initJs from scripts.js
-		initJs();
-
-		// hide menu
-		hidemenu();
-
-		dbService.GetDBRecord("users", "username", "adip", new AsyncCallback<DBRecord>() {
-
-			@Override
-			public void onFailure(Throwable caught) {
-				// TODO Auto-generated method stub
-				Window.alert(caught.getMessage());
-			}
-
-			@Override
-			public void onSuccess(DBRecord result) {
-				// TODO Auto-generated method stub
-				Window.alert(result.toString());
-			}
-		});
-
 		TheApp.login();
 
 	}
-
-	private native void hidemenu()
-	/*-{
-		$doc.getElementById("nav").style.display = "none";
-	}-*/;
-
-	private native void initJs()
-	/*-{
-		$wnd.initJs();
-	}-*/;
-
 }

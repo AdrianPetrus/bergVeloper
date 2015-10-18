@@ -1,37 +1,0 @@
-10
-
-dir
-452
-http://srvvm1/vmware/svn/repository/bc_hr/war/bootstrap
-http://srvvm1/vmware/svn/repository
-
-
-
-2015-07-23T13:12:43.126777Z
-446
-b
-
-
-svn:special svn:externals svn:needs-lock
-
-
-
-
-
-
-
-
-
-
-
-54db4ec6-56d4-4162-8644-8683e1ba2936
-
-css
-dir
-
-fonts
-dir
-
-js
-dir
-

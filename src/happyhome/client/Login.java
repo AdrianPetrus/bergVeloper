@@ -18,7 +18,6 @@ import com.google.gwt.event.dom.client.KeyUpHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Cookies;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Button;
@@ -54,9 +53,6 @@ public class Login extends VForm {
 	// constructor
 	public Login() {
 
-		// remove menu
-		hidemenu();
-
 		// Create a handler for the sendButton and nameField
 		class MyHandler implements ClickHandler, KeyUpHandler {
 			/**
@@ -83,6 +79,7 @@ public class Login extends VForm {
 		errorLabel = new HTML();
 
 		loginButton = new Button();
+		loginButton.setText("Login");
 
 		textAlias = new TextBox();
 		String strUserName = Cookies.getCookie("bc_hr.Login");
@@ -105,41 +102,14 @@ public class Login extends VForm {
 			String strPassword = Cookies.getCookie("bc_hr.Password");
 			// DebugUtils.D(strPassword);
 			// DebugUtils.D(1);
-			if (strPassword != null)
-				DoLogin(strAlias, strPassword);
-		} else {
-			// DebugUtils.D("No alias");
-			// AlertWidget.alertWidget("No alias !").center();
+			if (strPassword != null) {
+				// DoLogin(strAlias, strPassword);
+			} else {
+				// DebugUtils.D("No alias");
+				// AlertWidget.alertWidget("No alias !").center();
+			}
 		}
 	}
-
-	// // read all configuration from bcMain<sufix>
-	// void ReadAllConf() {
-	// this.ReadWriteConf("FL_STADII_DETALIATE", "NO");
-	// // this.ReadWriteConf("FL_PONTAJ_VERSIUNE", "0");
-	// // this.ReadWriteConf("USERS_R_XLS_STADIUVALORIC", "");
-	//
-	// }
-
-	// // read one configuration from DB and store in _VAR
-	// void ReadWriteConf(final String strKey, String strValue) {
-	// // read from configuration
-	// dbService.ReadWriteConf(strKey, strValue, new AsyncCallback<String>() {
-	// public void onSuccess(String result) {
-	// // adaug valoarea in TheApp
-	// if (result == null)
-	// result = "";
-	//
-	// TheApp._VAR(strKey, result);
-	// // DebugUtils.D(strKey);
-	// // DebugUtils.D(result);
-	// }
-	//
-	// public void onFailure(Throwable caught) {
-	// AlertWidget.alertWidget("ReadWriteConf - apel din Login - FAIL !");
-	// }
-	// });
-	// }
 
 	/*
 	 * functia principala de login citeste din baza de date si valideaza parola
@@ -154,7 +124,6 @@ public class Login extends VForm {
 		else
 			textPassword.setText(strPassword);
 
-
 		dbService.DoLogin("users", "USERNAME", strAlias, "PASSWORD", strPassword, new AsyncCallback<DBRecord>() {
 
 			public void onSuccess(DBRecord result) {
@@ -164,7 +133,7 @@ public class Login extends VForm {
 					if (result.tableName.isEmpty()) {
 						// alias gresit
 						TheApp.loginInfo.setLoggedIn(false);
-						String errorMsg = "Ai introdus gresit utilizatorul sau parola. Te rog completeaza din nou campurile de mai jos.!!! ";
+						String errorMsg = "Wrong username and password. Please fill the form with the correct user - password combination !!!";
 						errorLabel.setHTML("<div class=\"messages\"><ul><li class=\"sad\">" + errorMsg + "</li></ul></div>");
 					} else {
 
@@ -213,7 +182,6 @@ public class Login extends VForm {
 						// Login.this.ReadAllConf();
 
 						RootPanel.get("page-body").clear();
-						showmenu();
 						// apply right on the menu
 						VForm M = TheApp._FORMS.get("MainMenu");
 						M.ApplyRights(TheApp.loginInfo.User.getString("RIGHTS"), "MainMenu");
@@ -234,36 +202,6 @@ public class Login extends VForm {
 								TheApp._VAR(strKey, strValue);
 							}
 						}
-
-						// String className = "MainMenu";
-						// String strRights =
-						// TheApp.loginInfo.User.getString("RIGHTS");
-						// Window.alert(strRights);
-						// strRights = strRights.replaceAll("<div>", "\n");
-						// strRights = strRights.replaceAll("</div>", "\n");
-						// strRights = strRights.replaceAll("<br>", "\n");
-						// strRights = strRights.replaceAll(" ", "");
-						// strRights = strRights.replaceAll("\n\n", "\n");
-						// String[] aRights = strRights.split("\n");
-						//
-						// // cut at the $ sign
-						// int nPos = className.indexOf("$");
-						// if (nPos > 0)
-						// className = className.substring(0, nPos);
-						// className = className.trim() + ".";
-						// // Window.alert(className);
-						// String right;
-						// for (int i = 0; i < aRights.length; i++) {
-						// // search the class name in the string
-						// right = aRights[i];
-						// Window.alert(right + "---" + className);
-						// if (right.contains(className)) {
-						// right = right.replaceAll(className, "");
-						// Window.alert(right);
-						// HideControl(right);
-						// }
-						// }
-
 					}
 				} catch (Exception e) {
 					System.out.println(e.toString());
@@ -278,16 +216,6 @@ public class Login extends VForm {
 		});
 
 	}
-
-	private native void showmenu()
-	/*-{
-		$doc.getElementById("nav").style.display = "";
-	}-*/;
-
-	private native void hidemenu()
-	/*-{
-		$doc.getElementById("nav").style.display = "none";
-	}-*/;
 
 	// private native void HideControl(String id)
 	// /*-{

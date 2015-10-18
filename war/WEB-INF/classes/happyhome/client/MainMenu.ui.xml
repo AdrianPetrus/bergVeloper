@@ -1,156 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder' xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui'>
 	<g:HTMLPanel>
-		<h2>Overview</h2>
-		<div class="link-set">
-			<ul class="link-group">
-				<li>
-					<g:Anchor ui:field="Overview_1" href="javascript:;">Calendar</g:Anchor>
+		<!-- Navigation -->
+		<nav class="navbar navbar-default navbar-static-top" role="navigation"
+			style="margin-bottom: 0">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">HappyHome</a>
+			</div>
+			<!-- /.navbar-header -->
+
+			<ul class="nav navbar-top-links navbar-right">
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<i class="fa fa-user fa-fw"></i>
+						<i class="fa fa-caret-down"></i>
+					</a>
+					<ul class="dropdown-menu dropdown-user">
+						<li>
+							<g:Anchor ui:field='btnProfil'>
+								<i class="fa fa-user fa-fw"></i>
+								Profil
+							</g:Anchor>
+						</li>
+						<li>
+							<g:Anchor ui:field='btnSettings'>
+								<i class="fa fa-gear fa-fw"></i>
+								Setari
+							</g:Anchor>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<g:Anchor ui:field='btnLogout'>
+								<i class="fa fa-sign-out fa-fw"></i>
+								Logout
+							</g:Anchor>
+							<a href="login.html">
+
+							</a>
+						</li>
+					</ul> <!-- /.dropdown-user -->
 				</li>
+				<!-- /.dropdown -->
 			</ul>
-		</div>
+			<!-- /.navbar-top-links -->
 
-		<h2>Employees</h2>
-		<div class="link-set">
-			<ul class="link-group">
-				<li id="Employees_1_1">
-					<g:Anchor ui:field="Employees_1" href="javascript:;">Employees</g:Anchor>
-				</li>
-				<li>
-					<g:Anchor ui:field="Configuration_Certifications" href="javascript:;">Certifications</g:Anchor>
-				</li>
-				<li>
-					<g:Anchor ui:field="Configuration_Trainings" href="javascript:;">Trainings</g:Anchor>
-				</li>
-				<li>
-					<g:Anchor ui:field="Configuration_Evaluations" href="javascript:;">Evaluations</g:Anchor>
-				</li>
-				<li>
-					<g:Anchor ui:field="Configuration_Departments" href="javascript:;">Departments</g:Anchor>
-				</li>
-				<li>
-					<g:Anchor ui:field="Configuration_Benefits" href="javascript:;">Benefits</g:Anchor>
-				</li>
-				<li>
-					<g:Anchor ui:field="Employees_Positions" href="javascript:;">Positions</g:Anchor>
-				</li>
-			</ul>
-		</div>
-
-
-		<h2>Candidates</h2>
-		<div class="link-set">
-			<ul class="link-group">
-				<li>
-					<g:Anchor ui:field="Candidates_1" href="javascript:;">Candidates</g:Anchor>
-				</li>
-				<li>
-					<g:Anchor ui:field="Candidates_hr_activities" href="javascript:;">Activities</g:Anchor>
-				</li>
-				<li>
-					<g:Anchor ui:field="Candidates_hr_activities_statuses" href="javascript:;">Activities statuses</g:Anchor>
-				</li>
-				<li>
-					<g:Anchor ui:field="Candidates_requests_statuses" href="javascript:;">Application statuses</g:Anchor>
-				</li>
-			</ul>
-		</div>
-
-
-		<h2>Projects</h2>
-		<div class="link-set">
-			<ul class="link-group">
-				<li>
-					<g:Anchor ui:field="Projects_1" href="javascript:;">Projects</g:Anchor>
-				</li>
-			</ul>
-		</div>
-
-
-		<h2>Requests</h2>
-		<div class="link-set">
-			<ul class="link-group">
-				<li>
-					<g:Anchor ui:field="Requests_1" href="javascript:;">Requests</g:Anchor>
-				</li>
-				<li>
-					<g:Anchor ui:field="Requests_Statuses" href="javascript:;">Requests Statuses</g:Anchor>
-				</li>
-				<li>
-					<g:Anchor ui:field="Announces_1" href="javascript:;">Announces</g:Anchor>
-				</li>
-				<li>
-					<g:Anchor ui:field="Requests_Azure" href="javascript:;">Import from azure</g:Anchor>
-				</li>
-			</ul>
-		</div>
-
-
-		<h2>Reports</h2>
-		<div class="link-set">
-			<ul class="link-group">
-				<li id='Report_Candidates'>
-					<g:Anchor ui:field="Report_Candidates" href="javascript:;">Candidates</g:Anchor>
-				</li>
-				<li>
-					<g:Anchor ui:field="Report_Requests1" href="javascript:;">Requests</g:Anchor>
-				</li>
-				<li>
-					<g:Anchor ui:field="Report_Activity1" href="javascript:;">Activities</g:Anchor>
-				</li>
-				<li id='Report_Applications_1'>
-					<g:Anchor ui:field="Report_Applications" href="javascript:;">Applications</g:Anchor>
-				</li>
-				<li id='Report_Skills'>
-					<g:Anchor ui:field="Report_Skills" href="javascript:;">Skills</g:Anchor>
-				</li>
-				<li id='Report_Candidates_Process'>
-					<g:Anchor ui:field="Report_Candidates_Process" href="javascript:;">Process of candidates</g:Anchor>
-				</li>
-				<li id='Report_IS_Ccost'>
-					<g:Anchor ui:field="Report_IS_Ccost" href="javascript:;">Hours/cost center</g:Anchor>
-				</li>
-			</ul>
-		</div>
-
-
-		<h2>Configurations</h2>
-		<div class="link-set">
-			<ul class="link-group">
-				<li>
-					<g:Anchor ui:field="Configuration_Users" href="javascript:;">Users</g:Anchor>
-				</li>
-				<li>
-					<g:Anchor ui:field="Configuration_Skills" href="javascript:;">Skills</g:Anchor>
-				</li>
-				<li>
-					<g:Anchor ui:field="Configuration_Skills_Categories" href="javascript:;">Skills Categories</g:Anchor>
-				</li>
-				<li>
-					<g:Anchor ui:field="Configuration_Companies" href="javascript:;">Companies</g:Anchor>
-				</li>
-				<li>
-					<g:Anchor ui:field="Configuration_Countries" href="javascript:;">Countries</g:Anchor>
-				</li>
-				<li>
-					<g:Anchor ui:field="Configuration_Counties" href="javascript:;">Counties</g:Anchor>
-				</li>
-				<li>
-					<g:Anchor ui:field="Configuration_Cities" href="javascript:;">Cities</g:Anchor>
-				</li>
-				<li>
-					<g:Anchor ui:field="Configuration_CV_Source" href="javascript:;">CV Sources</g:Anchor>
-				</li>
-			</ul>
-		</div>
-
-		<h2>IO</h2>
-		<div class="link-set">
-			<ul class="link-group">
-				<li>
-					<g:Anchor ui:field="IO_Products" href="javascript:;">Products</g:Anchor>
-				</li>
-			</ul>
-		</div>
+			<div class="navbar-default sidebar" role="navigation">
+				<div class="sidebar-nav navbar-collapse">
+					<ul class="nav" id="side-menu">
+						<li class="sidebar-search">
+							<div class="input-group custom-search-form">
+								<input type="text" class="form-control" placeholder="Search..." />
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="button">
+										<i class="fa fa-search"></i>
+									</button>
+								</span>
+							</div> <!-- /input-group -->
+						</li>
+						<li>
+							<g:Anchor ui:field='btnDashboard'>
+								<i class="fa fa-dashboard fa-fw"></i>
+								Panou de control
+							</g:Anchor>
+						</li>
+						<li>
+							<a href="#">
+								<i class="fa fa-sitemap fa-fw"></i>
+								Vizualizare
+								<span class="fa arrow"></span>
+							</a>
+							<ul class="nav nav-second-level">
+								<li>
+									<g:Anchor ui:field='btnParter'>
+										Parter
+									</g:Anchor>
+								</li>
+							</ul> <!-- /.nav-second-level -->
+						</li>
+						<li>
+							<g:Anchor ui:field='btnSenzori'>
+								<i class="fa fa-home fa-fw"></i>
+								Senzori
+							</g:Anchor>
+						</li>
+						<li>
+							<a href="#">
+								<i class="fa fa-bar-chart-o fa-fw"></i>
+								Grafice
+								<span class="fa arrow"></span>
+							</a>
+							<ul class="nav nav-second-level">
+								<li>
+									<g:Anchor ui:field='btnTemperature'>
+										Temperatura
+									</g:Anchor>
+								</li>
+								<li>
+									<g:Anchor ui:field='btnEnvironment'>
+										Ambient
+									</g:Anchor>
+								</li>
+								<li>
+									<g:Anchor ui:field='btnResources'>
+										Resurse
+									</g:Anchor>
+								</li>
+							</ul> <!-- /.nav-second-level -->
+						</li>
+						<li>
+							<g:Anchor ui:field='btnGarden'>
+								<i class="fa fa-apple fa-fw"></i>
+								Gradina
+							</g:Anchor>
+						</li>
+					</ul>
+				</div>
+				<!-- /.sidebar-collapse -->
+			</div>
+			<!-- /.navbar-static-side -->
+		</nav>
 	</g:HTMLPanel>
 </ui:UiBinder>

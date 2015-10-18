@@ -4,6 +4,7 @@ import gwtSql.client.LoginInfo;
 import gwtSql.client.forms.LoadForm;
 import gwtSql.client.forms.VForm;
 import happyhome.client.Login;
+import happyhome.client.MainMenu;
 
 import java.util.HashMap;
 
@@ -30,9 +31,13 @@ public class TheApp {
 		if (!loginInfo.isLoggedIn()) {
 			// do the login
 			// Create the login dialog box
-			Login L = new Login();
-			RootPanel.get("page-body").clear();
-			RootPanel.get("page-body").add(L);
+//			Login L = new Login();
+//			RootPanel.get("page-wrapper").clear();
+//			RootPanel.get("page-wrapper").add(L);
+			
+			VForm f = new MainMenu();
+			RootPanel.get("wrapper").clear();
+			RootPanel.get("wrapper").add(f);
 		}
 	}
 
