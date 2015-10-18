@@ -149,7 +149,7 @@ public class Login extends VForm {
 		else
 			textPassword.setText(strPassword);
 
-		dbService.DoLogin(strAlias, strPassword, "PASSWORD", new AsyncCallback<DBRecord>() {
+		dbService.DoLogin(strAlias, strPassword, "password", new AsyncCallback<DBRecord>() {
 			public void onSuccess(DBRecord result) {
 				// setez pe TheApp
 				try {
