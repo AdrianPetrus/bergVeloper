@@ -107,8 +107,8 @@ public class MainMenu extends VForm {
 	@UiHandler("btnLogout")
 	void onClickbtnLogout(ClickEvent e) {
 		// remove cookies
-		Cookies.removeCookie("bc_hr.Login");
-		Cookies.removeCookie("bc_hr.Password");
+		Cookies.removeCookie("hh.Login");
+		Cookies.removeCookie("hh.Password");
 
 		// login
 		TheApp.loginInfo.setLoggedIn(false);

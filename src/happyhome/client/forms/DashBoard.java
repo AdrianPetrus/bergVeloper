@@ -1,7 +1,7 @@
 package happyhome.client.forms;
 
 import gwtSql.client.forms.VForm;
-import happyhome.client.widgets.WTemperature;
+import happyhome.client.widgets.TemperatureChart;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -15,12 +15,11 @@ public class DashBoard extends VForm {
 
 	private static MyUiBinder uiBinder = GWT.create(MyUiBinder.class);	
 	
-	@UiField(provided=true) WTemperature temp;
+	@UiField(provided=true) TemperatureChart tChart;
 
 	public DashBoard() {
 		
-		temp = new WTemperature();
-
+		tChart = new TemperatureChart();
 		initWidget(uiBinder.createAndBindUi(this));
 
 	}	

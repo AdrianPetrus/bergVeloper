@@ -29,15 +29,11 @@ public class TheApp {
 	public static void login() {
 
 		if (!loginInfo.isLoggedIn()) {
-			// do the login
-			// Create the login dialog box
-//			Login L = new Login();
-//			RootPanel.get("page-wrapper").clear();
-//			RootPanel.get("page-wrapper").add(L);
-			
-			VForm f = new MainMenu();
-			RootPanel.get("wrapper").clear();
-			RootPanel.get("wrapper").add(f);
+			 
+			//Create the login dialog box
+			Login L = new Login();
+			RootPanel.get("page-wrapper").clear();
+			RootPanel.get("page-wrapper").add(L);
 		}
 	}
 

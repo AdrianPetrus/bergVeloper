@@ -5,6 +5,10 @@
 <module rename-to='happyhome'>
 	<!-- Inherit the core Web Toolkit stuff. -->
 	<inherits name='com.google.gwt.user.User' />
+	<!-- Moxie GWT Charts -->
+	<inherits name="org.moxieapps.gwt.highcharts.Highcharts"/>
+	<!-- Addon for supporting SVG and VML -->
+	<inherits name='org.vaadin.gwtgraphics.GWTGraphics'/>	
 
 	<!-- Inherit the default GWT style sheet. You can change -->
 	<!-- the theme of your GWT application by uncommenting -->

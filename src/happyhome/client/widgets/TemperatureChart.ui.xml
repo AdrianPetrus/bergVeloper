@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:highcharts="urn:import:org.moxieapps.gwt.highcharts.client">
+	
+	<g:FlowPanel>
+        <highcharts:Chart ui:field="tempChart"/>
+    </g:FlowPanel>
+</ui:UiBinder>

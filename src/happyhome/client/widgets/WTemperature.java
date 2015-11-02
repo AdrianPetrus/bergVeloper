@@ -6,25 +6,37 @@ import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 
-public class WTemperature extends Composite{
+public class WTemperature extends Composite {
 	interface MyUiBinder extends UiBinder<Widget, WTemperature> {
 	}
 
 	private static MyUiBinder uiBinder = GWT.create(MyUiBinder.class);
-	private final Timer tmr = new Timer(){
+	private final Timer tmr = new Timer() {
 
 		@Override
-		public void run() {			
+		public void run() {
+			//TODO get reading from db
 			schedule(10000);
 		}
 	};
-	
-	public WTemperature(){
+
+	public WTemperature() {
 		initWidget(uiBinder.createAndBindUi(this));
 		tmr.schedule(1000);
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.google.gwt.user.client.ui.Widget#onUnload()
+	 * 
+	 * This method is called when the widget is destroyed (leave the page).
+	 * Because this widget is refreshing to update data, we need to stop the
+	 * timer when the widget is not used.
+	 */
+
 	@Override
-	public void onUnload(){		
+	public void onUnload() {
 		tmr.cancel();
 	}
 }

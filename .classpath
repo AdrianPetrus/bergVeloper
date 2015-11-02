@@ -7,5 +7,7 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/gwt-crypto-2.3.0-20110518.123759-2.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/gwtsql.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/mysql-connector-java-5.1.33-bin.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/org.moxieapps.gwt.highcharts-1.7.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gwt-graphics-1.0.0.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

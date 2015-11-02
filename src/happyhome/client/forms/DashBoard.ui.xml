@@ -3,6 +3,6 @@
 	xmlns:g='urn:import:com.google.gwt.user.client.ui'>
 	<g:HTMLPanel>
 		DashBoard Page
-		<g:Composite ui:field="temp"></g:Composite>
+		<g:Composite ui:field="tChart"></g:Composite>
 	</g:HTMLPanel>
 </ui:UiBinder>

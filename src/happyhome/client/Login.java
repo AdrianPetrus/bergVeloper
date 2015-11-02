@@ -5,6 +5,7 @@ import gwtSql.client.DBServiceAsync;
 import gwtSql.client.controls.AlertWidget;
 import gwtSql.client.forms.VForm;
 import gwtSql.shared.DBRecord;
+import happyhome.client.forms.Garden;
 import happyhome.shared.TheApp;
 
 import java.util.Date;
@@ -19,7 +20,6 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Cookies;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.PasswordTextBox;
@@ -52,7 +52,6 @@ public class Login extends VForm {
 
 	// constructor
 	public Login() {
-
 		// Create a handler for the sendButton and nameField
 		class MyHandler implements ClickHandler, KeyUpHandler {
 			/**
@@ -82,7 +81,7 @@ public class Login extends VForm {
 		loginButton.setText("Login");
 
 		textAlias = new TextBox();
-		String strUserName = Cookies.getCookie("bc_hr.Login");
+		String strUserName = Cookies.getCookie("hh.Login");
 		if (strUserName != null)
 			if (!strUserName.isEmpty())
 				textAlias.setText(strUserName);
@@ -98,15 +97,11 @@ public class Login extends VForm {
 		/* if the username is set ... doLogin */
 		String strAlias = textAlias.getText();
 		if (!strAlias.isEmpty()) {
-			// DebugUtils.D("Parola din cookies");
-			String strPassword = Cookies.getCookie("bc_hr.Password");
-			// DebugUtils.D(strPassword);
-			// DebugUtils.D(1);
+			String strPassword = Cookies.getCookie("hh.Password");
 			if (strPassword != null) {
-				// DoLogin(strAlias, strPassword);
+				DoLogin(strAlias, strPassword);
 			} else {
-				// DebugUtils.D("No alias");
-				// AlertWidget.alertWidget("No alias !").center();
+				AlertWidget.alertWidget("No Username specified !").center();
 			}
 		}
 	}
@@ -136,7 +131,6 @@ public class Login extends VForm {
 						String errorMsg = "Wrong username and password. Please fill the form with the correct user - password combination !!!";
 						errorLabel.setHTML("<div class=\"messages\"><ul><li class=\"sad\">" + errorMsg + "</li></ul></div>");
 					} else {
-
 						TheApp.loginInfo.setLoggedIn(true);
 						TheApp.loginInfo.User = result;
 						TheApp.loginInfo.sqlServerName = result.getString("DBConnection.sqlServerName");
@@ -144,64 +138,20 @@ public class Login extends VForm {
 						TheApp.loginInfo.sqlSufix = result.getString("DBConnection.sqlSufix");
 						TheApp.loginInfo.sqlIDFirma = result.getString("DBConnection.sqlIDFirma");
 
-						// set the username
-						String strUser = "User:" + TheApp.loginInfo.User.get("LAST_NAME") + " " + TheApp.loginInfo.User.get("FIRST_NAME")
-								+ " / logout";
-
-						/* logout */
-						// create logout part
-						final Anchor logoutLink = new Anchor(strUser);
-						RootPanel.get("login_logout").clear();
-						RootPanel.get("login_logout").add(logoutLink);
-
-						logoutLink.addClickHandler(new ClickHandler() {
-							@Override
-							public void onClick(ClickEvent event) {
-
-								// remove cookies
-								Cookies.removeCookie("bc_hr.Login");
-								Cookies.removeCookie("bc_hr.Password");
-
-								// login
-								TheApp.loginInfo.setLoggedIn(false);
-								TheApp.login();
-							}
-						});
-
 						// save values
 						Date now = new Date();
 						long nowLong = now.getTime();
-						nowLong = nowLong + (1000 * 60 * 60 * 24 * 7);// seven
-																		// days
+						nowLong = nowLong + (1000 * 60 * 60 * 24 * 7);// seven days
 						now.setTime(nowLong);
-						// DebugUtils.D("set ...");
-						Cookies.setCookie("bc_hr.Login", textAlias.getText(), now);
-						Cookies.setCookie("bc_hr.Password", textPassword.getText(), now);
+						Cookies.setCookie("hh.Login", textAlias.getText(), now);
+						Cookies.setCookie("hh.Password", textPassword.getText(), now);
+						
+						VForm menu = new MainMenu();
+						RootPanel.get("page-wrapper").clear();
+						RootPanel.get("wrapper").clear();
+						RootPanel.get("wrapper").add(menu);
 
-						// read from conf
-						// Login.this.ReadAllConf();
-
-						RootPanel.get("page-body").clear();
-						// apply right on the menu
-						VForm M = TheApp._FORMS.get("MainMenu");
-						M.ApplyRights(TheApp.loginInfo.User.getString("RIGHTS"), "MainMenu");
-						// ApplyRights1(TheApp.loginInfo.User.getString("RIGHTS"),
-						// "MainMenu");
-						//
-						String strConfig = TheApp.loginInfo.User.getString("CONFIG");
-						String[] aConfig = strConfig.split("\n");
-						String strKey, strValue, strBuffer;
-						int nPos;
-						for (int i = 0; i < aConfig.length; i++) {
-							strBuffer = aConfig[i];
-							nPos = strBuffer.indexOf("=");
-							if (nPos > 0) {
-								strKey = strBuffer.substring(0, nPos);
-								strValue = strBuffer.substring(nPos + 1);
-								// Window.alert(strKey + " - " + strValue);
-								TheApp._VAR(strKey, strValue);
-							}
-						}
+						
 					}
 				} catch (Exception e) {
 					System.out.println(e.toString());
