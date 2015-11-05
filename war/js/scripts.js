@@ -3,7 +3,7 @@ jQuery(document).ready(function($) {
 
 	var temp1 = 22;
 	var temp2 = 21;
-	
+
 	window.loadPlan = function() {
 		Snap.load("../../images/house.svg", onMapLoaded);
 	}
@@ -53,18 +53,30 @@ jQuery(document).ready(function($) {
 		});
 
 		// init elements
-		enableElement("socket", "socket1");
-		disableElement("socket", "socket2");
+		// enableElement("socket", "socket1");
+		// disableElement("socket", "socket2");
 		disableElement("socket", "socket3");
-		enableElement("light", "light1");
+		// enableElement("light", "light1");
 		enableElement("light", "light2");
-		disableElement("light", "light3");
+		// disableElement("light", "light3");
 		enableElement("lock", "lock1");
-		enableElement("lock", "lock2");
-		disableElement("lock", "lock3");
+		// enableElement("lock", "lock2");
+		// disableElement("lock", "lock3");
 
 		setTemperature("thermo1", temp1 + "°");
-		setTemperature("thermo2", temp2 + "°");
+		// setTemperature("thermo2", temp2 + "°");
+		reDrawPlan();
+
+	}
+
+	function reDrawPlan() {
+		$("#thermo2").hide();
+		$("#socket1").hide();
+		$("#socket2").hide();
+		$("#lock2").hide();
+		$("#light1").hide();
+		$("#light3").hide();
+		$("#lock3").hide();
 
 	}
 
@@ -109,7 +121,7 @@ jQuery(document).ready(function($) {
 		case "light":
 			$("#" + id).attr("status", "enabled");
 			$("#" + id + " > path:first-child").attr("fill", "#000000");
-			$("#" + id + " .disabled").attr("opacity", 0);			
+			$("#" + id + " .disabled").attr("opacity", 0);
 			$("#" + id + " .enabled").attr("opacity", 1);
 			document.doAction(id, "on");
 			break;

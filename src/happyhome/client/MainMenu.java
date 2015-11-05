@@ -2,10 +2,13 @@ package happyhome.client;
 
 import gwtSql.client.forms.VForm;
 import happyhome.client.forms.AppSettings;
+import happyhome.client.forms.BedroomOne;
 import happyhome.client.forms.DashBoard;
 import happyhome.client.forms.Environment;
 import happyhome.client.forms.Garden;
 import happyhome.client.forms.GroundFloor;
+import happyhome.client.forms.Kitchen;
+import happyhome.client.forms.Living;
 import happyhome.client.forms.Resources;
 import happyhome.client.forms.Sensors;
 import happyhome.client.forms.Temperature;
@@ -115,9 +118,26 @@ public class MainMenu extends VForm {
 		TheApp.login();
 	}
 	
-
+	@UiHandler("btnKitchen")
+	void onClickbtnBucatarie(ClickEvent e) {
+		VForm kitchen = new Kitchen();
+		RootPanel.get("page-wrapper").clear();
+		RootPanel.get("page-wrapper").add(kitchen);
+	}
 	
+	@UiHandler("btnLiving")
+	void onClickbtnLiving(ClickEvent e) {
+		VForm living = new Living();
+		RootPanel.get("page-wrapper").clear();
+		RootPanel.get("page-wrapper").add(living);
+	}
 	
+	@UiHandler("btnBedroomOne")
+	void onClickbtnBedroomOne(ClickEvent e) {
+		VForm bOne = new BedroomOne();
+		RootPanel.get("page-wrapper").clear();
+		RootPanel.get("page-wrapper").add(bOne);
+	}	
 
 	private native void InitMenuJs()/*-{
 		$wnd.InitMenu();

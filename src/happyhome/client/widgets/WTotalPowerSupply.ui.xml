@@ -3,18 +3,17 @@
 	xmlns:g='urn:import:com.google.gwt.user.client.ui'>
 	<g:HTMLPanel>
 		<div class="col-lg-3 col-md-6">
-			<div class="panel panel-green">
+			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<div class="row">
 						<div class="col-xs-3">
-							<div id="thermo-icon" class="icon">
-								<img src="../images/thermo.svg" alt="Thermo" />
+							<div id="socket-icon" class="icon">
+								<img src="../images/socket.svg" alt="Socket"/>
 							</div>
 						</div>
 						<div class="col-xs-9 text-right">
-							<div class="huge">24
-							</div>
-							<div>average temperature</div>
+							<div class="huge">4</div>
+							<div>sockets active</div>
 						</div>
 					</div>
 				</div>

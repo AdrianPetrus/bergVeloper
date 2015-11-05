@@ -20,8 +20,8 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 
-public class TemperatureChart extends Composite {
-	interface MyUiBinder extends UiBinder<FlowPanel, TemperatureChart> {
+public class WTemperatureChart extends Composite {
+	interface MyUiBinder extends UiBinder<FlowPanel, WTemperatureChart> {
 	}
 
 	private static MyUiBinder uiBinder = GWT.create(MyUiBinder.class);
@@ -40,7 +40,7 @@ public class TemperatureChart extends Composite {
 	@UiField(provided = true)
 	public final Chart tempChart;
 
-	public TemperatureChart() {
+	public WTemperatureChart() {
 		tempChart = createChart("");
 		
 		initWidget(uiBinder.createAndBindUi(this));

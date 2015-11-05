@@ -86,10 +86,30 @@
 							</ul> <!-- /.nav-second-level -->
 						</li>
 						<li>
-							<g:Anchor ui:field='btnSenzori'>
-								<i class="fa fa-home fa-fw"></i>
-								Senzori
-							</g:Anchor>
+							<a href="#">
+								<g:Anchor ui:field='btnSenzori'>
+									<i class="fa fa-home fa-fw"></i>
+									Senzori
+									<span class="fa arrow"></span>
+								</g:Anchor>
+							</a>
+							<ul class="nav nav-second-level">
+								<li>
+									<g:Anchor ui:field='btnLiving'>
+										Living
+									</g:Anchor>
+								</li>
+								<li>
+									<g:Anchor ui:field='btnKitchen'>
+										Bucatarie
+									</g:Anchor>
+								</li>
+								<li>
+									<g:Anchor ui:field='btnBedroomOne'>
+										Dormitor 1
+									</g:Anchor>
+								</li>
+							</ul> <!-- /.nav-second-level -->
 						</li>
 						<li>
 							<a href="#">

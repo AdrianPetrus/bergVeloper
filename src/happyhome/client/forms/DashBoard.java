@@ -1,7 +1,11 @@
 package happyhome.client.forms;
 
 import gwtSql.client.forms.VForm;
-import happyhome.client.widgets.TemperatureChart;
+import happyhome.client.widgets.WTemperature;
+import happyhome.client.widgets.WTemperatureChart;
+import happyhome.client.widgets.WTotalKW;
+import happyhome.client.widgets.WTotalLight;
+import happyhome.client.widgets.WTotalPowerSupply;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -14,12 +18,18 @@ public class DashBoard extends VForm {
 	}
 
 	private static MyUiBinder uiBinder = GWT.create(MyUiBinder.class);	
-	
-	@UiField(provided=true) TemperatureChart tChart;
+		
+	@UiField(provided=true) WTotalLight wTLight;
+	@UiField(provided=true) WTotalPowerSupply wTSupply;
+	@UiField(provided=true) WTemperature wTemp;
+	@UiField(provided=true) WTotalKW wTotalKW;
 
 	public DashBoard() {
 		
-		tChart = new TemperatureChart();
+		wTLight = new WTotalLight();
+		wTSupply = new WTotalPowerSupply();
+		wTemp = new WTemperature();
+		wTotalKW = new WTotalKW();
 		initWidget(uiBinder.createAndBindUi(this));
 
 	}	

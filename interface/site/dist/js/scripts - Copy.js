@@ -1,17 +1,25 @@
 jQuery(document).ready(function($) {
 	"use strict";
-	
-	// ------------------------------------------------------------------------
-	// HOUSE MAP
-	// ------------------------------------------------------------------------
-	var mapsvg = Snap("#house");
-	var loadMap = Snap.load("../../images/house.svg", onMapLoaded);
 		
 	var temp1 = 22;
 	var temp2 = 21;
 	
+	var map = Snap("#house");
+	var loadMap = Snap.load("../images/house.svg", onMapLoaded);
+	
+	var fansvg = Snap("#fan-icon");
+	var loadFan = Snap.load("../images/fan.svg", onFanLoaded);
+	var fan;
+	
+	var sprinkler1 = Snap("#sprinkler1");
+	var loadSprinkler1 = Snap.load("../images/sprinkler.svg", onSprinkler1Loaded);
+	
+	var sprinkler2 = Snap("#sprinkler2");
+	var loadSprinkler2 = Snap.load("../images/sprinkler.svg", onSprinkler2Loaded);
+	
 	function onMapLoaded(data){ 
-		mapsvg.append(data);
+		map.append(data);
+	
 		$("#sockets > g").click(function() {
 			if($(this).attr("status") === "enabled") {
 				disableElement("socket", $(this).attr("id"));
@@ -56,10 +64,62 @@ jQuery(document).ready(function($) {
 		enableElement("lock","lock1");
 		enableElement("lock","lock2");
 		disableElement("lock","lock3");
+		
 		setTemperature("thermo1", temp1 + "°");
 		setTemperature("thermo2", temp2 + "°");
+
 	}
+	
+	function onFanLoaded(data) {
+		fansvg.append(data);
+		fan = fansvg.select("path");
+		startAnimation(fan);
+	}
+	
+	function onSprinkler1Loaded(data) {
+		sprinkler1.append(data);
+		//startSprinkler(sprinkler1);
+	}
+		
+	function onSprinkler2Loaded(data) {
+		sprinkler2.append(data);
+		startSprinkler(sprinkler2);
+	}
+		
 	// ------------------------------------------------------------------------
+		
+	function startAnimation(obj){
+		obj.animate(
+			{ transform: 'r359,12,12'},
+			3000, 
+			function(){ 
+				obj.attr({ transform: 'r0 12 12'});
+				startAnimation(obj);
+			}
+		);
+	}
+	
+	function stopAnimation(obj) {
+		obj.stop();
+	}
+	
+	function startSprinkler(obj){
+		var drops = obj.select("#drops");
+	  	drops.animate({ transform: "s0,0,10,5" }, 0, function(){
+			drops.animate({ transform: "s1,1,10,5" }, 250, function() {
+				startSprinkler(obj);
+			});
+		});
+	}
+			
+	// ------------------------------------------------------------------------
+	
+	function setTemperature(obj, deg) {
+		$("#"+obj).find("text").html(deg);
+	}
+		
+	// ------------------------------------------------------------------------
+	
 	function enableElement(type, id) {
 		switch(type) {
 			case "socket":
@@ -104,79 +164,7 @@ jQuery(document).ready(function($) {
 				//
 		}
 	}
-	
-	function setTemperature(obj, deg) {
-		$("#"+obj).find("text").html(deg);
-	}
-	
+		
 	// ------------------------------------------------------------------------
-	// FAN
-	// ------------------------------------------------------------------------
-	var fansvg = Snap("#fan-icon");
-	var loadFan = Snap.load("../../images/fan.svg", onFanLoaded);
-	
-	function onFanLoaded(data) {
-		fansvg.append(data);
-		startFan();
-	}
-	// ------------------------------------------------------------------------
-	function startFan(){
-		var fan = Snap.select("#fan");
-		fan.animate(
-			{ transform: 'r359,12,12'},
-			3000, 
-			function(){ 
-				fan.attr({ transform: 'r0 12 12'});
-				startFan();
-			}
-		);
-	}
-	function stopFan(){
-		var fan = Snap.select("#fan");
-		fan.stop();
-	}
-	
-	// ------------------------------------------------------------------------
-	// SPRINKLERS
-	// ------------------------------------------------------------------------
-	var spRun = [false,false];
-	
-	var sprinkler1 = Snap("#sprinkler1");
-	var loadSprinkler1 = Snap.load("../../images/sprinkler.svg", onSprinkler1Loaded);
-	var sprinkler2 = Snap("#sprinkler2");
-	var loadSprinkler2 = Snap.load("../../images/sprinkler.svg", onSprinkler2Loaded);
-	
-	function onSprinkler1Loaded(data) {
-		sprinkler1.append(data);
-		startSprinkler(1);
-	}
-	function onSprinkler2Loaded(data) {
-		sprinkler2.append(data);
-		//stopSprinkler(2);
-	}	
-	// ------------------------------------------------------------------------
-	function startSprinkler(id){
-		var drops = eval("sprinkler"+id).select("g.drops").attr("class","drops fleosch");
-		spRun[id-1]=true;
-	}
-	function stopSprinkler(id){
-		var drops = eval("sprinkler"+id).select("g.drops").attr("class","drops");
-		spRun[id-1]=false;
-	}
-	
-	$("#sbutton1").click(function() {
-		if(spRun[0]){
-			stopSprinkler(1);
-		} else {
-			startSprinkler(1);
-		}
-	});
-	$("#sbutton2").click(function() {
-		if(spRun[1]){
-			stopSprinkler(2);
-		} else {
-			startSprinkler(2);
-		}
-	});
 
 });

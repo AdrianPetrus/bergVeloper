@@ -2,7 +2,16 @@
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
 	xmlns:g='urn:import:com.google.gwt.user.client.ui'>
 	<g:HTMLPanel>
-		DashBoard Page
-		<g:Composite ui:field="tChart"></g:Composite>
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">Dashboard</h1>
+			</div>			
+		</div>
+		<div class="row">
+			<g:Composite ui:field="wTLight"></g:Composite>
+			<g:Composite ui:field="wTSupply"></g:Composite>
+			<g:Composite ui:field="wTemp"></g:Composite>
+			<g:Composite ui:field="wTotalKW"></g:Composite>
+		</div>
 	</g:HTMLPanel>
 </ui:UiBinder>
