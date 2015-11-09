@@ -137,7 +137,7 @@
 						</li>
 						<li>
 							<g:Anchor ui:field='btnGarden'>
-								<i class="fa fa-apple fa-fw"></i>
+								<i class="fa fa-pagelines fa-fw"></i>
 								Gradina
 							</g:Anchor>
 						</li>

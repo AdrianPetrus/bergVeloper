@@ -161,6 +161,49 @@ jQuery(document).ready(function($) {
 			//
 		}
 	}
+	
+	// ------------------------------------------------------------------------
+	// SPRINKLERS
+	// ------------------------------------------------------------------------
+	var spRun = [false,false];
+	
+	var sprinkler1 = Snap("#sprinkler1");
+	var loadSprinkler1 = Snap.load("../../images/sprinkler.svg", onSprinkler1Loaded);
+	var sprinkler2 = Snap("#sprinkler2");
+	var loadSprinkler2 = Snap.load("../../images/sprinkler.svg", onSprinkler2Loaded);
+	
+	function onSprinkler1Loaded(data) {
+		sprinkler1.append(data);
+		startSprinkler(1);
+	}
+	function onSprinkler2Loaded(data) {
+		sprinkler2.append(data);
+		//stopSprinkler(2);
+	}	
+	// ------------------------------------------------------------------------
+	function startSprinkler(id){
+		var drops = eval("sprinkler"+id).select("g.drops").attr("class","drops fleosch");
+		spRun[id-1]=true;
+	}
+	function stopSprinkler(id){
+		var drops = eval("sprinkler"+id).select("g.drops").attr("class","drops");
+		spRun[id-1]=false;
+	}
+	
+	$("#sbutton1").click(function() {
+		if(spRun[0]){
+			stopSprinkler(1);
+		} else {
+			startSprinkler(1);
+		}
+	});
+	$("#sbutton2").click(function() {
+		if(spRun[1]){
+			stopSprinkler(2);
+		} else {
+			startSprinkler(2);
+		}
+	});
 
 	// ------------------------------------------------------------------------
 

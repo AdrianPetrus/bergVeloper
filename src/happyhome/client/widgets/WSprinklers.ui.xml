@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+	<g:HTMLPanel>
+		<div class="col-lg-3 col-md-6">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Area 1</div>
+				<div class="panel-body">
+					<div class="sprinkler">
+						<div class="s-header">
+							<div id="sprinkler1" class="icon"></div>
+							<button id="sbutton1" type="button" class="btn btn-primary"
+								aria-label="Left Align">
+								<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+							</button>
+							<div class="form-group">
+								<div class="input-group">
+									<input class="form-control" aria-label="Time" value="10"
+										type="text" />
+									<span class="input-group-addon">min</span>
+								</div>
+							</div>
+						</div>
+						<div class="s-times">
+							<h3>Time intervals</h3>
+							<div class="row">
+								<div class="col-sm-6 start-time">
+									<input type="text" class="form-control" value="13:30" />
+									<span class="glyphicon glyphicon-chevron-right"
+										aria-hidden="true"></span>
+								</div>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" value="13:40"
+										disabled="" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6 start-time">
+									<input type="text" class="form-control" value="15:00" />
+									<span class="glyphicon glyphicon-chevron-right"
+										aria-hidden="true"></span>
+								</div>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" value="15:10"
+										disabled="" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<button type="button" class="btn btn-info btn-circle">
+										<i class="fa fa-plus"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder>

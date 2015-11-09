@@ -7,9 +7,34 @@
 	cursor: pointer;
 }
 .icon {
-	width:70px;
+	width: 70px;
 	height: 70px;
 }
+.s-header {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eee;
+}
+.s-header .icon {
+	float: left;
+	margin-right: 15px;
+	width: 80px;
+	height: 80px;
+}
+.s-header .form-group {
+	margin-top: 10px;
+}
+.s-times .row {
+	margin-bottom: 10px;
+}
+.start-time {
+	position: relative;
+}
+.start-time span {
+	position: absolute;
+	top: 10px;
+	right: -5px;
+}
+/* ---------------------------------------------------------------------- */
 .fan {
 	-webkit-animation-name: spin;
     -webkit-animation-duration: 40000ms;
@@ -35,4 +60,52 @@
 @keyframes spin {
     from {transform:rotate(0deg);}
     to {transform:rotate(359deg);}
+}
+/* ---------------------------------------------------------------------- */
+.drops {
+	opacity: 0;
+}
+.fleosch {
+	opacity: 1; 
+	-webkit-animation-name: feosch;
+    -webkit-animation-duration: 300ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: feosch;
+    -moz-animation-duration: 300ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: feosch;
+    -ms-animation-duration: 300ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;	
+}
+@-moz-keyframes feosch {
+    0% { -moz-transform: scale(1); }
+    50% { -moz-transform: scale(0); }
+    100% { -moz-transform: scale(1); }
+}
+@-webkit-keyframes feosch {
+    0% { -webkit-transform: scale(1);  -webkit-transform-origin: center center; }
+    50% { -webkit-transform: scale(0);  -webkit-transform-origin: center center; }
+    100% { -webkit-transform: scale(1);  -webkit-transform-origin: center center; }
+}
+@keyframes feosch {
+    0% { transform: scale(1); transform-origin: center center; }
+    50% { transform: scale(0); transform-origin: center center; }
+    100% { transform: scale(1); transform-origin: center center; }
+}
+/* ---------------------------------------------------------------------- */
+@media(max-width:767px) {
+	.start-time span {
+		display: none;
+	}
+	.start-time input:nth-child(1) {
+		margin-bottom: 5px;
+	}
+	.s-times .row {
+		margin-bottom: 15px;
+	}
+
+	
 }
