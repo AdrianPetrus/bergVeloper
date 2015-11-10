@@ -1,6 +1,6 @@
 package happyhome.client.widgets;
 
-import happyhome.client.jsoverlays.TemperatureReader;
+import happyhome.client.jsoverlays.DataReader;
 
 import org.moxieapps.gwt.highcharts.client.Chart;
 import org.moxieapps.gwt.highcharts.client.ChartSubtitle;
@@ -74,15 +74,15 @@ public class WTemperatureChart extends Composite {
 
 			String url = "http://192.168.44.200:8080/api/wifinou/TMP";
 
-			jsonp.requestObject(url, new AsyncCallback<TemperatureReader>() {
+			jsonp.requestObject(url, new AsyncCallback<DataReader>() {
 				@Override
 				public void onFailure(Throwable caught) {
 					Window.alert(caught.getMessage());
 				}
 
 				@Override
-				public void onSuccess(TemperatureReader result) {					
-					temp = result.getTemp();
+				public void onSuccess(DataReader result) {					
+					//temp = result.getData();
 					Window.alert(temp);
 				}
 			});
