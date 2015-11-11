@@ -9,9 +9,12 @@
 		</div>
 		<div class="row">
 			<g:Composite ui:field="wTLight"></g:Composite>
-			<g:Composite ui:field="wTSupply"></g:Composite>
-			<g:Composite ui:field="wTemp"></g:Composite>
-			<g:Composite ui:field="wTotalKW"></g:Composite>
+			<g:Composite ui:field="wTSupply"></g:Composite>			
+			<g:Composite ui:field="wTotalKW"></g:Composite>			
 		</div>
+		<div class="row">
+			<g:Composite ui:field="wTempRoom1"></g:Composite>
+			<g:Composite ui:field="wTempRoom2"></g:Composite>
+		</div>		
 	</g:HTMLPanel>
 </ui:UiBinder>

@@ -6,14 +6,14 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.user.client.ui.Widget;
 
-public class Sensors extends VForm {
+public class Room2 extends VForm {
 
-	interface MyUiBinder extends UiBinder<Widget, Sensors> {
+	interface MyUiBinder extends UiBinder<Widget, Room2> {
 	}
 
 	private static MyUiBinder uiBinder = GWT.create(MyUiBinder.class);
 	
-	public Sensors(){
+	public Room2(){
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 }

@@ -7,12 +7,11 @@ jQuery(document).ready(function($) {
 	window.loadPlan = function() {
 		Snap.load("../../images/house.svg", onMapLoaded);
 	}
-
-	var fansvg = Snap("#fan-icon");
+	
 	window.loadFan = function() {
 		Snap.load("../../images/fan.svg", onFanLoaded);
 	}
-	var fan;
+	
 
 	function onMapLoaded(data) {
 		var map = Snap("#house");
@@ -81,8 +80,9 @@ jQuery(document).ready(function($) {
 	}
 
 	function onFanLoaded(data) {
+		var fansvg = Snap("#fan-icon");
 		fansvg.append(data);
-		fan = fansvg.select("path");
+		var fan = fansvg.select("path");
 		startAnimation(fan);
 	}
 

@@ -2,15 +2,20 @@ package happyhome.client.widgets;
 
 import happyhome.client.jsoverlays.DataReader;
 
+import java.util.Date;
+
+import org.moxieapps.gwt.highcharts.client.Axis;
 import org.moxieapps.gwt.highcharts.client.Chart;
-import org.moxieapps.gwt.highcharts.client.ChartSubtitle;
-import org.moxieapps.gwt.highcharts.client.ChartTitle;
 import org.moxieapps.gwt.highcharts.client.Series;
 import org.moxieapps.gwt.highcharts.client.ToolTip;
-import org.moxieapps.gwt.highcharts.client.labels.DataLabels;
-import org.moxieapps.gwt.highcharts.client.plotOptions.LinePlotOptions;
+import org.moxieapps.gwt.highcharts.client.ToolTipData;
+import org.moxieapps.gwt.highcharts.client.ToolTipFormatter;
+import org.moxieapps.gwt.highcharts.client.YAxis;
+import org.moxieapps.gwt.highcharts.client.plotOptions.Marker;
+import org.moxieapps.gwt.highcharts.client.plotOptions.SplinePlotOptions;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.jsonp.client.JsonpRequestBuilder;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -36,34 +41,72 @@ public class WTemperatureChart extends Composite {
 	};
 
 	private String temp = "";
+	@SuppressWarnings("unused")
+	private Long startPoint;
 
 	@UiField(provided = true)
 	public final Chart tempChart;
 
 	public WTemperatureChart() {
-		tempChart = createChart("");
+		startPoint = DateTimeFormat.getFormat("yyyy-MM-dd").parse((DateTimeFormat.getFormat("yyyy-MM-dd").format(new Date()))).getTime();
+		tempChart = createChart("");		
 		
 		initWidget(uiBinder.createAndBindUi(this));
 		tmr.schedule(1000);
-		readTemp();
+		//readTemp();
 	}
 
 	public Chart createChart(String dbInfo) {
 
-		final Chart chart = new Chart().setType(Series.Type.LINE).setChartTitle(new ChartTitle().setText("Monthly Average Temperature"))
-				.setChartSubtitle(new ChartSubtitle().setText("Source: HappyHomeAutomation")).setToolTip(new ToolTip().setEnabled(false));
+		 final Chart chart = new Chart()  
+         .setType(Series.Type.SPLINE)  
+         .setChartTitleText("Wind speed during two days")  
+         .setChartSubtitleText("October 6th and 7th 2009 at two locations in Vik i Sogn, Norway")  
+         .setToolTip(new ToolTip()  
+             .setFormatter(new ToolTipFormatter() {  
+                 public String format(ToolTipData toolTipData) {  
+                     return DateTimeFormat.getFormat("d. MMMM YYYY HH:00").format(  
+                         new Date(toolTipData.getXAsLong())  
+                     ) + ": " + toolTipData.getYAsDouble() + " m/s";  
+                 }  
+             })  
+         )  
+         .setSplinePlotOptions(new SplinePlotOptions()  
+             .setLineWidth(4)  
+             .setHoverStateLineWidth(5)  
+             .setMarker(new Marker()  
+                 .setEnabled(false)  
+                 .setHoverState(new Marker()  
+                     .setEnabled(true)  
+                     .setSymbol(Marker.Symbol.CIRCLE)  
+                     .setRadius(5)  
+                     .setLineWidth(1)  
+                 )  
+             )  
+             .setPointInterval(3600000)  // one hour  
+             .setPointStart(startPoint)  
+         );  
 
-		chart.getXAxis().setCategories("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+     chart.getXAxis()  
+         .setType(Axis.Type.DATE_TIME)
+         .setTickInterval(1800000);  
 
-		chart.getYAxis().setAxisTitleText("Temperature C");
+     final YAxis axis = chart.getYAxis();  
+//     final Color blueColor = new Color(68, 170, 213, 0.1);  
+//     final Color clearColor = new Color(0, 0, 0, 0);  
+     axis.setAxisTitleText("Wind speed (m/s)")  
+         .setMin(0)  
+         .setMinorGridLineWidth(0)  
+         .setGridLineWidth(0)  
+         .setAlternateGridColor("#F0F0F0");  
 
-		chart.setLinePlotOptions(new LinePlotOptions().setEnableMouseTracking(true).setDataLabels(new DataLabels().setEnabled(true)));
-
-		chart.addSeries(chart.createSeries().setName("Living Room")
-				.setPoints(new Number[] { 10.5, 20.4, 24.5, 21, 22, 21.4, 21.2, 19, 18.4, 14.0, 22, 23 }));
-		chart.addSeries(chart.createSeries().setName("Kitchen")
-				.setPoints(new Number[] { 13.9, 14.2, 15.7, 18.5, 19.9, 15.2, 17.0, 16.6, 14.2, 10.3, 16.6, 14.8 }));
-
+     chart.addSeries(chart.createSeries()  
+         .setName("Hestavollane")  
+         .setPoints(new Number[]{  
+             4.3, 5.1, 4.3, 5.2, 5.4, 4.7, 3.5, 4.1, 5.6, 7.4, 6.9, 7.1,  
+             7.9, 7.9  
+         })  
+     );
 		return chart;
 	}
 

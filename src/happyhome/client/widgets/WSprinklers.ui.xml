@@ -4,7 +4,7 @@
 	<g:HTMLPanel>
 		<div class="col-lg-3 col-md-6">
 			<div class="panel panel-primary">
-				<div class="panel-heading">Area 1</div>
+				<div class="panel-heading">Zona 1</div>
 				<div class="panel-body">
 					<div class="sprinkler">
 						<div class="s-header">
@@ -22,7 +22,7 @@
 							</div>
 						</div>
 						<div class="s-times">
-							<h3>Time intervals</h3>
+							<h3>Interval de timp</h3>
 							<div class="row">
 								<div class="col-sm-6 start-time">
 									<input type="text" class="form-control" value="13:30" />

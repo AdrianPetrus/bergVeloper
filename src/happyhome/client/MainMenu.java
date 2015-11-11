@@ -2,15 +2,13 @@ package happyhome.client;
 
 import gwtSql.client.forms.VForm;
 import happyhome.client.forms.AppSettings;
-import happyhome.client.forms.BedroomOne;
 import happyhome.client.forms.DashBoard;
 import happyhome.client.forms.Environment;
 import happyhome.client.forms.Garden;
 import happyhome.client.forms.GroundFloor;
-import happyhome.client.forms.Kitchen;
-import happyhome.client.forms.Living;
+import happyhome.client.forms.Room1;
+import happyhome.client.forms.Room2;
 import happyhome.client.forms.Resources;
-import happyhome.client.forms.Sensors;
 import happyhome.client.forms.Temperature;
 import happyhome.client.forms.UserProfile;
 import happyhome.shared.TheApp;
@@ -56,13 +54,6 @@ public class MainMenu extends VForm {
 		VForm parter = new GroundFloor();
 		RootPanel.get("page-wrapper").clear();
 		RootPanel.get("page-wrapper").add(parter);
-	}
-	
-	@UiHandler("btnSenzori")
-	void onClickbtnSensors(ClickEvent e) {
-		VForm senzori = new Sensors();
-		RootPanel.get("page-wrapper").clear();
-		RootPanel.get("page-wrapper").add(senzori);
 	}
 	
 	@UiHandler("btnTemperature")
@@ -118,26 +109,19 @@ public class MainMenu extends VForm {
 		TheApp.login();
 	}
 	
-	@UiHandler("btnKitchen")
-	void onClickbtnBucatarie(ClickEvent e) {
-		VForm kitchen = new Kitchen();
+	@UiHandler("btnCamera1")
+	void onClickbtnCamera1(ClickEvent e) {
+		VForm kitchen = new Room1();
 		RootPanel.get("page-wrapper").clear();
 		RootPanel.get("page-wrapper").add(kitchen);
 	}
 	
-	@UiHandler("btnLiving")
-	void onClickbtnLiving(ClickEvent e) {
-		VForm living = new Living();
+	@UiHandler("btnCamera2")
+	void onClickbtnCamera2(ClickEvent e) {
+		VForm living = new Room2();
 		RootPanel.get("page-wrapper").clear();
 		RootPanel.get("page-wrapper").add(living);
 	}
-	
-	@UiHandler("btnBedroomOne")
-	void onClickbtnBedroomOne(ClickEvent e) {
-		VForm bOne = new BedroomOne();
-		RootPanel.get("page-wrapper").clear();
-		RootPanel.get("page-wrapper").add(bOne);
-	}	
 
 	private native void InitMenuJs()/*-{
 		$wnd.InitMenu();

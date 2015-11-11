@@ -12,15 +12,14 @@
 							</div>
 						</div>
 						<div class="col-xs-9 text-right">
-							<div class="huge">24
-							</div>
-							<div>average temperature</div>
+							<g:HTML ui:field="tempValue" styleName="huge"></g:HTML>
+							<g:HTML ui:field="labelHtml"></g:HTML>							
 						</div>
 					</div>
 				</div>
 				<a href="#">
 					<div class="panel-footer">
-						<span class="pull-left">View Details</span>
+						<span class="pull-left">Detalii</span>
 						<span class="pull-right">
 							<i class="fa fa-arrow-circle-right"></i>
 						</span>

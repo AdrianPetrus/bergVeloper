@@ -72,7 +72,7 @@
 							</g:Anchor>
 						</li>
 						<li>
-							<a href="#">
+							<a href="javascript:;">
 								<i class="fa fa-sitemap fa-fw"></i>
 								Vizualizare
 								<span class="fa arrow"></span>
@@ -86,7 +86,7 @@
 							</ul> <!-- /.nav-second-level -->
 						</li>
 						<li>
-							<a href="#">
+							<a href="javascript:;">
 								<g:Anchor ui:field='btnSenzori'>
 									<i class="fa fa-home fa-fw"></i>
 									Senzori
@@ -95,24 +95,19 @@
 							</a>
 							<ul class="nav nav-second-level">
 								<li>
-									<g:Anchor ui:field='btnLiving'>
-										Living
+									<g:Anchor ui:field='btnCamera1'>
+										Camera 1
 									</g:Anchor>
 								</li>
 								<li>
-									<g:Anchor ui:field='btnKitchen'>
-										Bucatarie
-									</g:Anchor>
-								</li>
-								<li>
-									<g:Anchor ui:field='btnBedroomOne'>
-										Dormitor 1
+									<g:Anchor ui:field='btnCamera2'>
+										Camera 2
 									</g:Anchor>
 								</li>
 							</ul> <!-- /.nav-second-level -->
 						</li>
 						<li>
-							<a href="#">
+							<a href="javascript:;">
 								<i class="fa fa-bar-chart-o fa-fw"></i>
 								Grafice
 								<span class="fa arrow"></span>

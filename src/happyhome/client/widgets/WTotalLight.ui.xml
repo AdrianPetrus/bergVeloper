@@ -12,20 +12,20 @@
 							</div>
 						</div>
 						<div class="col-xs-9 text-right">
-							<div class="huge">3</div>
-							<div>lights on</div>
+							<g:HTML ui:field="lightsOn" styleName="huge"></g:HTML>
+							<div>becuri aprinse</div>
 						</div>
 					</div>
 				</div>
-				<a href="#">
+				<g:Anchor ui:field="btnDetails">
 					<div class="panel-footer">
-						<span class="pull-left">View Details</span>
+						<span class="pull-left">Detalii</span>
 						<span class="pull-right">
 							<i class="fa fa-arrow-circle-right"></i>
 						</span>
 						<div class="clearfix"></div>
 					</div>
-				</a>
+				</g:Anchor>
 			</div>
 		</div>
 	</g:HTMLPanel>
