@@ -1,6 +1,7 @@
 package happyhome.client.widgets;
 
 import happyhome.client.jsoverlays.DataReader;
+import happyhome.shared.AppConstants;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.jsonp.client.JsonpRequestBuilder;
@@ -63,7 +64,7 @@ public class WTemperature extends Composite {
 			JsonpRequestBuilder jsonp = new JsonpRequestBuilder();
 			jsonp.setTimeout(5000);
 
-			String url = "http://192.168.44.200:8080/api/ask4web/device/" + device + "/action/TMP";
+			String url = AppConstants.raspberryIp + "/ask4web/device/" + device + "/action/TMP";
 
 			jsonp.requestObject(url, new AsyncCallback<DataReader>() {				
 

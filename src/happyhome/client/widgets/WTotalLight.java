@@ -1,6 +1,7 @@
 package happyhome.client.widgets;
 
 import happyhome.client.jsoverlays.DataReader;
+import happyhome.shared.AppConstants;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -59,7 +60,7 @@ public class WTotalLight extends Composite {
 			JsonpRequestBuilder jsonp = new JsonpRequestBuilder();
 			jsonp.setTimeout(5000);
 
-			String url = "http://192.168.44.200:8080/api/getlightson";
+			String url = AppConstants.raspberryIp + "/getlightson";
 
 			jsonp.requestObject(url, new AsyncCallback<DataReader>() {
 

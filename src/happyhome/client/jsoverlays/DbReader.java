@@ -1,7 +1,6 @@
 package happyhome.client.jsoverlays;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.json.client.JSONArray;
 
 public class DbReader extends JavaScriptObject {
 
@@ -13,8 +12,8 @@ public class DbReader extends JavaScriptObject {
 		return this.status;
 	}-*/;
 
-	public final native JSONArray getData() /*-{
-		return this.value;
+	public final native JsArray<JavaScriptObject> getData() /*-{
+		return this.data;
 	}-*/;	
 
 	public final native String getDeviceName() /*-{

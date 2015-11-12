@@ -13,13 +13,15 @@ public class Room1 extends VForm {
 	interface MyUiBinder extends UiBinder<Widget, Room1> {
 	}
 
-	private static MyUiBinder uiBinder = GWT.create(MyUiBinder.class);
+	private static MyUiBinder uiBinder = GWT.create(MyUiBinder.class);	
 	
 	@UiField(provided = true)
 	WTemperatureChart wTChart;
 	
 	public Room1(){
-		wTChart = new WTemperatureChart();
-		initWidget(uiBinder.createAndBindUi(this));
+		wTChart = new WTemperatureChart("esp1", "Camera 1");
+		initWidget(uiBinder.createAndBindUi(this));		
 	}
+	
+	
 }
