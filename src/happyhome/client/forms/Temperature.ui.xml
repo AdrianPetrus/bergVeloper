@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
-	xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+	xmlns:g='urn:import:com.google.gwt.user.client.ui' xmlns:highcharts="urn:import:org.moxieapps.gwt.highcharts.client">
 	<g:HTMLPanel>
-		Temperatura
+		<div class="row">
+			<highcharts:Chart ui:field="tempHistoryChart1" />			
+		</div>
 	</g:HTMLPanel>
 </ui:UiBinder>

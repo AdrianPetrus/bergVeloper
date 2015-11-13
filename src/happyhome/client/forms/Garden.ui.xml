@@ -4,11 +4,11 @@
 	<g:HTMLPanel>
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Garden</h1>
+				<h1 class="page-header">Sistem irigatii</h1>
 			</div>
 		</div>
 		<div class="row">
-			<g:Composite ui:field="wSprinkler1"></g:Composite>
+			<g:Composite ui:field="wSprinklers"></g:Composite>			
 		</div>
 	</g:HTMLPanel>
 </ui:UiBinder>

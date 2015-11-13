@@ -3,7 +3,6 @@ package happyhome.client;
 import gwtSql.client.forms.VForm;
 import happyhome.client.forms.AppSettings;
 import happyhome.client.forms.DashBoard;
-import happyhome.client.forms.Environment;
 import happyhome.client.forms.Garden;
 import happyhome.client.forms.GroundFloor;
 import happyhome.client.forms.Resources;
@@ -22,6 +21,11 @@ import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
+/**
+ * This class will generate the main menu
+ * 
+ * @author Adrian Petrus
+ */
 public class MainMenu extends VForm {
 
 	interface MyUiBinder extends UiBinder<Widget, MainMenu> {
@@ -63,12 +67,12 @@ public class MainMenu extends VForm {
 		RootPanel.get("page-wrapper").add(temperatura);
 	}
 	
-	@UiHandler("btnEnvironment")
-	void onClickbtnEnvironment(ClickEvent e) {
-		VForm env = new Environment();
-		RootPanel.get("page-wrapper").clear();
-		RootPanel.get("page-wrapper").add(env);
-	}
+//	@UiHandler("btnEnvironment")
+//	void onClickbtnEnvironment(ClickEvent e) {
+//		VForm env = new Environment();
+//		RootPanel.get("page-wrapper").clear();
+//		RootPanel.get("page-wrapper").add(env);
+//	}
 	
 	@UiHandler("btnResources")
 	void onClickbtnResources(ClickEvent e) {
@@ -100,6 +104,8 @@ public class MainMenu extends VForm {
 	
 	@UiHandler("btnLogout")
 	void onClickbtnLogout(ClickEvent e) {
+		RootPanel.get("page-wrapper").clear();
+		RootPanel.get("wrapper").clear();
 		// remove cookies
 		Cookies.removeCookie("hh.Login");
 		Cookies.removeCookie("hh.Password");

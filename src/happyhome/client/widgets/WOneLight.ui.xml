@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+	<g:HTMLPanel>
+		<div class="col-lg-3 col-md-6">
+			<div class="panel panel-primary element">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-3">
+							<g:HTML ui:field="lightIcon" styleName="icon element-enabled">
+								<img src="../images/light.svg" alt="Light" />
+							</g:HTML>
+						</div>
+						<div class="col-xs-9 text-right">
+							<g:Button ui:field="btnLight" styleName="btn btn-default btn-element">
+								<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+							</g:Button>
+							<g:HTML ui:field="caption"></g:HTML>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder>

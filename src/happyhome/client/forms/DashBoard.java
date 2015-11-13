@@ -11,13 +11,20 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Widget;
 
+/**
+ * This class is resposible for generating the dashboard page
+ * 
+ * @author Adrian Petrus
+ *
+ */
 public class DashBoard extends VForm {
 
 	interface MyUiBinder extends UiBinder<Widget, DashBoard> {
 	}
-
+	//initialization of uiBinder
 	private static MyUiBinder uiBinder = GWT.create(MyUiBinder.class);
 
+	//declaration of uiFields
 	@UiField(provided = true)
 	WTotalLight wTLight;
 	@UiField(provided = true)
@@ -30,12 +37,15 @@ public class DashBoard extends VForm {
 	WTotalKW wTotalKW;
 
 	public DashBoard() {
-
+		
+		//initialization of ui widgets
 		wTLight = new WTotalLight();
 		wTSupply = new WTotalPowerSupply();
 		wTempRoom1 = new WTemperature("temperatura camera 1", "esp1");
 		wTempRoom2 = new WTemperature("temperatura camera 2", "esp2");
 		wTotalKW = new WTotalKW();
+		
+		//initizalization of the actual page
 		initWidget(uiBinder.createAndBindUi(this));
 	}	
 }

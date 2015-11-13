@@ -3,6 +3,9 @@ package happyhome.client.widgets;
 import happyhome.client.jsoverlays.DataReader;
 import happyhome.shared.AppConstants;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.jsonp.client.JsonpRequestBuilder;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -75,8 +78,8 @@ public class WTemperature extends Composite {
 
 				@Override
 				public void onSuccess(DataReader result) {
-					if (result.getStatus().equals("success")) {						
-						tempValue.setHTML(result.getValue() + "&#176;");
+					if (result.getStatus().equals("success")) {
+						tempValue.setHTML(round(Double.valueOf(result.getValue()), 2) + "&#176;C");
 					} else {
 						Window.alert(result.getMessage());
 					}
@@ -85,5 +88,13 @@ public class WTemperature extends Composite {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+	}
+	
+	public double round(double value, int places) {
+	    if (places < 0) throw new IllegalArgumentException();
+
+	    BigDecimal bd = new BigDecimal(value);
+	    bd = bd.setScale(places, RoundingMode.HALF_UP);
+	    return bd.doubleValue();
 	}
 }

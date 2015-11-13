@@ -5,5 +5,8 @@
 		<div class="row">
 			<g:Composite ui:field="wTChart"></g:Composite>
 		</div>
+		<div class="row">
+			<g:Composite ui:field="wTempRoom1"></g:Composite>
+		</div>
 	</g:HTMLPanel>
 </ui:UiBinder>

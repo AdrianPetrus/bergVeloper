@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
 	// HOUSE MAP
 	// ------------------------------------------------------------------------
 	var mapsvg = Snap("#house");
-	var loadMap = Snap.load("../../images/house.svg", onMapLoaded);
+	var loadMap = Snap.load("../images/house.svg", onMapLoaded);
 		
 	var temp1 = 22;
 	var temp2 = 21;
@@ -113,7 +113,7 @@ jQuery(document).ready(function($) {
 	// FAN
 	// ------------------------------------------------------------------------
 	var fansvg = Snap("#fan-icon");
-	var loadFan = Snap.load("../../images/fan.svg", onFanLoaded);
+	var loadFan = Snap.load("../images/fan.svg", onFanLoaded);
 	
 	function onFanLoaded(data) {
 		fansvg.append(data);
@@ -141,19 +141,14 @@ jQuery(document).ready(function($) {
 	// ------------------------------------------------------------------------
 	var spRun = [false,false];
 	
-	var sprinkler1 = Snap("#sprinkler1");
-	var loadSprinkler1 = Snap.load("../../images/sprinkler.svg", onSprinkler1Loaded);
-	var sprinkler2 = Snap("#sprinkler2");
-	var loadSprinkler2 = Snap.load("../../images/sprinkler.svg", onSprinkler2Loaded);
 	
-	function onSprinkler1Loaded(data) {
-		sprinkler1.append(data);
-		startSprinkler(1);
+	var loadSprinkler1 = Snap.load("../images/sprinkler.svg", onSprinklerLoaded);
+	
+	function onSprinklerLoaded(data) {
+		var sprinkler1 = Snap("#sprinkler1");
+		sprinkler1.append(data);		
 	}
-	function onSprinkler2Loaded(data) {
-		sprinkler2.append(data);
-		//stopSprinkler(2);
-	}	
+	
 	// ------------------------------------------------------------------------
 	function startSprinkler(id){
 		var drops = eval("sprinkler"+id).select("g.drops").attr("class","drops fleosch");
@@ -176,6 +171,19 @@ jQuery(document).ready(function($) {
 			stopSprinkler(2);
 		} else {
 			startSprinkler(2);
+		}
+	});
+	
+	// ------------------------------------------------------------------------
+	// ELEMENTS
+	// ------------------------------------------------------------------------
+	
+	$(".btn-element").click(function() {
+		var obj = $(this).parent().prev().find(".icon");
+		if(!obj.hasClass("element-disabled")) {
+		 	obj.addClass("element-disabled");
+		} else {
+			obj.removeClass("element-disabled");
 		}
 	});
 

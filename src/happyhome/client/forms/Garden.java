@@ -15,10 +15,26 @@ public class Garden extends VForm {
 
 	private static MyUiBinder uiBinder = GWT.create(MyUiBinder.class);
 	
-	@UiField(provided=true) WSprinklers wSprinkler1;
+	@UiField(provided=true) WSprinklers wSprinklers;
 	
 	public Garden(){
-		wSprinkler1 = new WSprinklers();
+		wSprinklers = new WSprinklers();		
 		initWidget(uiBinder.createAndBindUi(this));
 	}
+	
+	@Override
+	protected void onLoad() {
+		super.onLoad();
+		loadSprinkler1();		
+		loadSprinkler2();
+	}
+
+	private native void loadSprinkler1()
+	/*-{		
+		$wnd.loadSprinkler1();		
+	}-*/;
+	private native void loadSprinkler2()
+	/*-{		
+		$wnd.loadSprinkler2();		
+	}-*/;
 }

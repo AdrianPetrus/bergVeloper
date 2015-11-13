@@ -4,14 +4,19 @@ jQuery(document).ready(function($) {
 	var temp1 = 22;
 	var temp2 = 21;
 
+	window.loadSprinkler1 = function() {
+		Snap.load("../../images/sprinkler.svg", onSprinkler1Loaded);
+	}
+	window.loadSprinkler2 = function() {
+		Snap.load("../../images/sprinkler.svg", onSprinkler2Loaded);
+	}
 	window.loadPlan = function() {
 		Snap.load("../../images/house.svg", onMapLoaded);
 	}
-	
+
 	window.loadFan = function() {
 		Snap.load("../../images/fan.svg", onFanLoaded);
 	}
-	
 
 	function onMapLoaded(data) {
 		var map = Snap("#house");
@@ -54,11 +59,11 @@ jQuery(document).ready(function($) {
 		// init elements
 		// enableElement("socket", "socket1");
 		// disableElement("socket", "socket2");
-		disableElement("socket", "socket3");
+		// disableElement("socket", "socket3");
 		// enableElement("light", "light1");
-		enableElement("light", "light2");
+		// enableElement("light", "light2");
 		// disableElement("light", "light3");
-		enableElement("lock", "lock1");
+		 enableElement("lock", "lock1");
 		// enableElement("lock", "lock2");
 		// disableElement("lock", "lock3");
 
@@ -116,21 +121,20 @@ jQuery(document).ready(function($) {
 		case "socket":
 			$("#" + id).attr("status", "enabled");
 			$("#" + id + " > path:first-child").attr("fill", "#000000");
-			document.doAction(id, "on");
+			document.doAction(id, "PRZ");
 			break;
 		case "light":
 			$("#" + id).attr("status", "enabled");
 			$("#" + id + " > path:first-child").attr("fill", "#000000");
 			$("#" + id + " .disabled").attr("opacity", 0);
 			$("#" + id + " .enabled").attr("opacity", 1);
-			document.doAction(id, "on");
+			document.doAction(id, "BEC");
 			break;
 		case "lock":
 			$("#" + id).attr("status", "enabled");
 			$("#" + id + " > path:first-child").attr("fill", "#000000");
 			$("#" + id + " .enabled").attr("opacity", 1);
 			$("#" + id + " .disabled").attr("opacity", 0);
-			document.doAction(id, "on");
 			break;
 		default:
 			//
@@ -141,70 +145,54 @@ jQuery(document).ready(function($) {
 		case "socket":
 			$("#" + id).attr("status", "disabled");
 			$("#" + id + " > path:first-child").attr("fill", "#FFFFFF");
-			document.doAction(id, "off");
+			document.doAction(id, "PRZ");
 			break;
 		case "light":
 			$("#" + id).attr("status", "disabled");
 			$("#" + id + " > path:first-child").attr("fill", "#FFFFFF");
 			$("#" + id + " .disabled").attr("opacity", 1);
 			$("#" + id + " .enabled").attr("opacity", 0);
-			document.doAction(id, "off");
+			document.doAction(id, "BEC");
 			break;
 		case "lock":
 			$("#" + id).attr("status", "disabled");
 			$("#" + id + " > path:first-child").attr("fill", "#FFFFFF");
 			$("#" + id + " .enabled").attr("opacity", 0);
 			$("#" + id + " .disabled").attr("opacity", 1);
-			document.doAction(id, "off");
 			break;
 		default:
 			//
 		}
 	}
-	
+
 	// ------------------------------------------------------------------------
 	// SPRINKLERS
 	// ------------------------------------------------------------------------
-	var spRun = [false,false];
-	
-	var sprinkler1 = Snap("#sprinkler1");
-	var loadSprinkler1 = Snap.load("../../images/sprinkler.svg", onSprinkler1Loaded);
-	var sprinkler2 = Snap("#sprinkler2");
-	var loadSprinkler2 = Snap.load("../../images/sprinkler.svg", onSprinkler2Loaded);
-	
+	var spRun = [ false, false ];
+
+	// var sprinkler2 = Snap("#sprinkler2");
+	// var loadSprinkler2 = Snap.load("../../images/sprinkler.svg",
+	// onSprinkler2Loaded);
+
 	function onSprinkler1Loaded(data) {
+		var sprinkler1 = Snap("#sprinkler1");
 		sprinkler1.append(data);
-		startSprinkler(1);
+		toggleSprinkler(1);
 	}
 	function onSprinkler2Loaded(data) {
-		sprinkler2.append(data);
-		//stopSprinkler(2);
-	}	
+		var sprinkler2 = Snap("#sprinkler2");
+		sprinkler2.append(data);		
+	}
+	// function onSprinkler2Loaded(data) {
+	// sprinkler2.append(data);
+	// //stopSprinkler(2);
+	// }
 	// ------------------------------------------------------------------------
-	function startSprinkler(id){
-		var drops = eval("sprinkler"+id).select("g.drops").attr("class","drops fleosch");
-		spRun[id-1]=true;
-	}
-	function stopSprinkler(id){
-		var drops = eval("sprinkler"+id).select("g.drops").attr("class","drops");
-		spRun[id-1]=false;
-	}
-	
-	$("#sbutton1").click(function() {
-		if(spRun[0]){
-			stopSprinkler(1);
-		} else {
-			startSprinkler(1);
-		}
-	});
-	$("#sbutton2").click(function() {
-		if(spRun[1]){
-			stopSprinkler(2);
-		} else {
-			startSprinkler(2);
-		}
-	});
+	window.toggleSprinkler = function(id) {
+		var drops = $("#sprinkler" + id + " g.drops");
+		drops[0].classList.toggle("fleosch");
 
+	}
 	// ------------------------------------------------------------------------
 
 });

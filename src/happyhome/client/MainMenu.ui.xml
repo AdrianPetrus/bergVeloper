@@ -13,7 +13,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html">HappyHome</a>
+				<a class="navbar-brand" href="index.html">HappyHouse - Home Automation System</a>
 			</div>
 			<!-- /.navbar-header -->
 
@@ -118,11 +118,11 @@
 										Temperatura
 									</g:Anchor>
 								</li>
-								<li>
-									<g:Anchor ui:field='btnEnvironment'>
-										Ambient
-									</g:Anchor>
-								</li>
+<!-- 								<li> -->
+<!-- 									<g:Anchor ui:field='btnEnvironment'> -->
+<!-- 										Ambient -->
+<!-- 									</g:Anchor> -->
+<!-- 								</li> -->
 								<li>
 									<g:Anchor ui:field='btnResources'>
 										Resurse

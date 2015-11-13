@@ -1,7 +1,11 @@
 package happyhome.client.widgets;
 
+import gwtSql.client.forms.VForm;
+import happyhome.client.forms.Sensors;
 import happyhome.client.jsoverlays.DataReader;
 import happyhome.shared.AppConstants;
+
+import java.util.ArrayList;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -14,6 +18,7 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class WTotalLight extends Composite {
@@ -21,6 +26,7 @@ public class WTotalLight extends Composite {
 	}
 
 	private static MyUiBinder uiBinder = GWT.create(MyUiBinder.class);
+	private ArrayList<Widget> devices = new ArrayList<Widget>();
 	private final Timer tmr = new Timer() {
 
 		@Override
@@ -37,7 +43,7 @@ public class WTotalLight extends Composite {
 		lightsOn = new HTML();
 		initWidget(uiBinder.createAndBindUi(this));
 		lightsOn.setHTML("Loading...");
-		//tmr.schedule(1000);
+		tmr.schedule(1000);
 	}
 
 	/*
@@ -72,7 +78,9 @@ public class WTotalLight extends Composite {
 				@Override
 				public void onSuccess(DataReader result) {
 					if (result.getStatus().equals("success")) {
+						devices.clear();
 						lightsOn.setHTML("1");
+						devices.add(new WOneLight("Camera1", "esp1"));
 					} else {
 						Window.alert(result.getMessage());
 					}
@@ -85,6 +93,8 @@ public class WTotalLight extends Composite {
 
 	@UiHandler("btnDetails")
 	void onClickbtnDetails(ClickEvent e) {
-		Window.alert("go to details page");
+		VForm form = new Sensors(devices);
+		RootPanel.get("page-wrapper").clear();
+		RootPanel.get("page-wrapper").add(form);
 	}
 }

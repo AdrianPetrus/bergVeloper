@@ -12,12 +12,12 @@
 							</div>
 						</div>
 						<div class="col-xs-9 text-right">
-							<div class="huge">4</div>
-							<div>prize alimentate</div>
+							<g:HTML ui:field="socketsOn" styleName="huge"></g:HTML>
+							<div>priza alimentata</div>
 						</div>
 					</div>
 				</div>
-				<a href="#">
+				<g:Anchor ui:field="btnDetails">
 					<div class="panel-footer">
 						<span class="pull-left">Detalii</span>
 						<span class="pull-right">
@@ -25,7 +25,7 @@
 						</span>
 						<div class="clearfix"></div>
 					</div>
-				</a>
+				</g:Anchor>
 			</div>
 		</div>
 	</g:HTMLPanel>

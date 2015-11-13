@@ -34,6 +34,12 @@
 	top: 10px;
 	right: -5px;
 }
+.element button {
+	margin-bottom: 5px;
+}
+.element-disabled {
+	opacity: 0.5;
+}
 /* ---------------------------------------------------------------------- */
 .fan {
 	-webkit-animation-name: spin;
