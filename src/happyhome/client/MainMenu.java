@@ -34,8 +34,7 @@ public class MainMenu extends VForm {
 	private static MyUiBinder uiBinder = GWT.create(MyUiBinder.class);	
 
 	public MainMenu() {
-		initWidget(uiBinder.createAndBindUi(this));
-		
+		initWidget(uiBinder.createAndBindUi(this));		
 		final Timer tmr = new com.google.gwt.user.client.Timer() {
 			
 			@Override

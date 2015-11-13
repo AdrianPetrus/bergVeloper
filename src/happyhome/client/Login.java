@@ -6,6 +6,7 @@ import gwtSql.client.controls.AlertWidget;
 import gwtSql.client.forms.VForm;
 import gwtSql.shared.CryptUtils;
 import gwtSql.shared.DBRecord;
+import happyhome.client.forms.DashBoard;
 import happyhome.shared.TheApp;
 
 import java.util.Date;
@@ -163,6 +164,8 @@ public class Login extends VForm {
 						RootPanel.get("page-wrapper").clear();
 						RootPanel.get("wrapper").clear();
 						RootPanel.get("wrapper").add(menu);
+						VForm dashBoard = new DashBoard();						
+						RootPanel.get("page-wrapper").add(dashBoard);
 
 					}
 				} catch (Exception e) {

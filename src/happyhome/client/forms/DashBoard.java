@@ -42,7 +42,7 @@ public class DashBoard extends VForm {
 		wTLight = new WTotalLight();
 		wTSupply = new WTotalPowerSupply();
 		wTempRoom1 = new WTemperature("temperatura camera 1", "esp1");
-		wTempRoom2 = new WTemperature("temperatura camera 2", "esp2");
+		wTempRoom2 = new WTemperature("temperatura camera 2", "esp1");
 		wTotalKW = new WTotalKW();
 		
 		//initizalization of the actual page

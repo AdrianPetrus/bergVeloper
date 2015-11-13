@@ -59,11 +59,11 @@ jQuery(document).ready(function($) {
 		// init elements
 		// enableElement("socket", "socket1");
 		// disableElement("socket", "socket2");
-		// disableElement("socket", "socket3");
+		disableElement("socket", "socket3");
 		// enableElement("light", "light1");
 		// enableElement("light", "light2");
-		// disableElement("light", "light3");
-		 enableElement("lock", "lock1");
+		disableElement("light", "light2");
+		enableElement("lock", "lock1");
 		// enableElement("lock", "lock2");
 		// disableElement("lock", "lock3");
 
@@ -116,7 +116,7 @@ jQuery(document).ready(function($) {
 
 	// ------------------------------------------------------------------------
 
-	function enableElement(type, id) {
+	window.enableElement = function(type, id) {
 		switch (type) {
 		case "socket":
 			$("#" + id).attr("status", "enabled");
@@ -140,7 +140,7 @@ jQuery(document).ready(function($) {
 			//
 		}
 	}
-	function disableElement(type, id) {
+	window.disableElement = function(type, id) {
 		switch (type) {
 		case "socket":
 			$("#" + id).attr("status", "disabled");
@@ -163,6 +163,20 @@ jQuery(document).ready(function($) {
 		default:
 			//
 		}
+	}
+
+	window.toggleState = function(status, id) {
+		$("#" + id).attr("status", status);
+		if (status == "enabled") {
+			$("#" + id + " > path:first-child").attr("fill", "#000000");
+			$("#" + id + " .enabled").attr("opacity", 1);
+			$("#" + id + " .disabled").attr("opacity", 0);
+		} else {
+			$("#" + id + " > path:first-child").attr("fill", "#FFFFFF");
+			$("#" + id + " .enabled").attr("opacity", 0);
+			$("#" + id + " .disabled").attr("opacity", 1);
+		}
+
 	}
 
 	// ------------------------------------------------------------------------
@@ -181,7 +195,7 @@ jQuery(document).ready(function($) {
 	}
 	function onSprinkler2Loaded(data) {
 		var sprinkler2 = Snap("#sprinkler2");
-		sprinkler2.append(data);		
+		sprinkler2.append(data);
 	}
 	// function onSprinkler2Loaded(data) {
 	// sprinkler2.append(data);
@@ -194,5 +208,4 @@ jQuery(document).ready(function($) {
 
 	}
 	// ------------------------------------------------------------------------
-
 });
